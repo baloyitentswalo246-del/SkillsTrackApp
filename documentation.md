@@ -26,7 +26,7 @@ Authentication system for sign-in, when new user register
 # Email address and password
 
     Enable Email/Password in the Firebase console
-
+    
     Render EmailLinkAuthScreen in React
 
 # Email link authentication
