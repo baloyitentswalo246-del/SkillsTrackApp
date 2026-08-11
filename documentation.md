@@ -11,19 +11,23 @@
    1. HTML - Will be used to create the stucture od the SkillsTrackApp Learner Support Portal , including pages, forms, buttons, navigation menus and other elements that users interact with.
    2. CSS - Will be used to style and design the portal. It wii control colours, fonts, spacing, layouts, buttons and overall appearance of the application.
    3. JavaScript - Will be used for the functionality and logic of the application . It will handle user interactions, forms validatoin, task management, calculations, DOM updated and communication with Firebase. 
-   4. Firebase realtime Database - 
-   5. Firebase Authentication - 
-   6. Git and GiHub - 
+   4. Firebase realtime Database - Eill be used store retrieve application data, such as leaner profiles, task, support bookings and game scores.
+   5. Firebase Authentication - Will be used to manage user registration, login , logout and authenticated users states. 
+   6. Git and GiHub - Will be used for vision control teamwork.
+6. DEVELOPMENT TOOLS
+   1. Visual Studio Code - 
+   2. Git -
+   3. GitHub -
+   4. Google Chrome - 
+   5. Figma - 
+   6. Miro - 
+7. TEAM MEMBERS AND RESPONSIBILITIES
 
-7. DEVELOPMENT TOOLS
+8. REPOSITORY STUCTURE
 
-8. TEAM MEMBERS AND RESPONSIBILITIES
+9. GIT BRANCHING STRATEGY
 
-9. REPOSITORY STUCTURE
+10. CONTRIBUTION GUIDELINES
 
-10. GIT BRANCHING STRATEGY
-
-11. CONTRIBUTION GUIDELINES
-
-12. SETUP INSTRUCTIONS
+11. SETUP INSTRUCTIONS
 
