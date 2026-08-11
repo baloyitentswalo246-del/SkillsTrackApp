@@ -15,12 +15,12 @@
    5. Firebase Authentication - Will be used to manage user registration, login , logout and authenticated users states. 
    6. Git and GiHub - Will be used for vision control teamwork.
 6. DEVELOPMENT TOOLS
-   1. Visual Studio Code - 
-   2. Git -
-   3. GitHub -
-   4. Google Chrome - 
-   5. Figma - 
-   6. Miro - 
+   1. Visual Studio Code - Used to write, edit, format and debug the HTML, CSS and Javascript code.
+   2. Git - Used to track code change, create branches and save versions of the project.
+   3. GitHub - Used to store the project online and allow team members to colloborate using branches, commits and pull requests.
+   4. Google Chrome - Used to run, test and debug the web application using brower Developer Tools.
+   5. Figma - Used to create wireframes and design the user interface.
+   6. Miro - Used for brainstorming, planning flowcharts and organising project ideas.
 7. TEAM MEMBERS AND RESPONSIBILITIES
 
 8. REPOSITORY STUCTURE
