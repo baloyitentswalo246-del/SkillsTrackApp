@@ -1,4 +1,13 @@
 
+1. PROJECT TITLE
+   SkillsTrackApp
+2. PROJECT OVERRVIEW
+   The SkillsTrackApp Learner Support Portal is a wed application that help learners manage their learning task, book support sessions, track their progress and acess learning resources. It uses HTML, CSS, JavaScript, Firebase and GitHub.
+3. CLIENT BRIEF SUMMARY
+
+4. PROJECT OBJECTIVE
+
+5. TECHNOLOGICS
 Authentication system for sign-in, when new user register
 
 1. install Firebase
@@ -117,3 +126,17 @@ Authentication system for sign-in, when new user register
 # add firebase on javascript project
 # Enable email-link sign-in
 # send an authentication link to the user's email address.
+6. DEVELOPMENT TOOLS
+
+7. DEVELOPMENT TOOLS
+
+8. TEAM MEMBERS AND RESPONSIBILITIES
+
+9. REPOSITORY STUCTURE
+
+10. GIT BRANCHING STRATEGY
+
+11. CONTRIBUTION GUIDELINES
+
+12. SETUP INSTRUCTIONS
+
