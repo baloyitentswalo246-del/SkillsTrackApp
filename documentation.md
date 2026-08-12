@@ -1,3 +1,10 @@
+A. Project title:
+
+SkillsTrackApp.
+
+B. Project overview:
+
+
 
 Authentication system for sign-in, when new user register
 
@@ -7,21 +14,21 @@ Authentication system for sign-in, when new user register
 
 # choose platform and firebase (React)
 
-# The auth components used throughout this guide are available from that registry, including sign-in-auth-screen, sign-up-auth-screen, email-link-auth-screen, oauth-screen, phone-auth-screen,google-sign-in-button
+# The auth components - including sign-in-auth-screen, sign-up-auth-screen, email-link-auth-screen, oauth-screen, phone-auth-screen,google-sign-in-button
 
-# add the components you want to use
+# add the components we want to use
 
-# React apps without shadcn/ui, install
+# Install React apps without shadcn/ui
 
 2. Initialize FirebaseUI
 
-# Create a shared UI store with initializeUI, pass it to your framework integration.
+# Create a shared UI store with initializeUI, pass it to our framework integration.
 
 3. Include styles
 
 # Include the FirebaseUI styles(css)
 
-4. Set up sign-in methode
+4. Set up sign-in methods
 
 # Email address and password
 
@@ -51,7 +58,7 @@ Authentication system for sign-in, when new user register
 
 6. Sign in
 
-# Render the auth screen you want and handle success in component callbacks(React) 
+# Render the auth screen we want and handle success in component callbacks(React) 
 
 7. Sign out
 
@@ -59,7 +66,7 @@ Authentication system for sign-in, when new user register
 
 8. Google One Tap
 
-# Use the oneTapSignIn(...) behavior to enable Google One Tap
+# Use the oneTapSignIn behavior to enable Google One Tap
 
 9. Terms of service and privacy policy
 
