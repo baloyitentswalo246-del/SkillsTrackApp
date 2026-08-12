@@ -29,7 +29,7 @@ The main Objectives are :
  - Chrome
  - Github
  
- ## Firebase Authentication
+  Firebase Authentication
 
 Authentication system for sign-in, when new user register
 
