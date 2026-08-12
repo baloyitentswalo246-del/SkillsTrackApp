@@ -33,13 +33,13 @@ Authentication system for sign-in, when new user register
 
 1. install Firebase
 
-- Use modular
+# Use modular
 
-- choose platform and firebase (React)
+# choose platform and firebase (React)
 
-- The auth components used throughout this guide are   available from that registry, including sign-in-auth-screen, sign-up-auth-screen, email-link-auth-screen, oauth-screen, phone-auth-screen,google-sign-in-button
+# The auth components used throughout this guide are available from that registry, including sign-in-auth-screen, sign-up-auth-screen, email-link-auth-screen, oauth-screen, phone-auth-screen,google-sign-in-button
 
-- add the components you want to use
+# add the components you want to use
 
 # React apps without shadcn/ui, install
 
@@ -123,13 +123,13 @@ Authentication system for sign-in, when new user register
 
 15. verification email
 
-- send email verfication
+# send email verfication
 
 16.  set a user's password
 
-- update password
+# update password
 
-- send Password reset email
+# send Password reset email
 
 17. Password Authentication
 
@@ -147,39 +147,3 @@ Authentication system for sign-in, when new user register
 # add firebase on javascript project
 # Enable email-link sign-in
 # send an authentication link to the user's email address.
-
-20. Repository Structure
- - ## Repository Structure
-
-The **Skills Track App** repository is organised into clearly defined folders and files to keep the project's source code, documentation, designs, assets, and presentation materials structured and easy to maintain.
-
-Learner-Support-Portal/
-│
-├── README.md
-├── CHANGELOG.md
-├── LICENSE
-├── .gitignore
-│
-├── docs/
-│   ├── Client Brief
-│   ├── Requirements
-│   ├── Research
-│   ├── Meeting Minutes
-│   ├── User Stories
-│   ├── Use Cases
-│   ├── Wireframes
-│   ├── UI Designs
-│   └── Test Plan
-│
-├── designs/
-│   ├── Figma Link.md
-│   ├── UI Mockups
-│   └── Images
-│
-|
-├── assets/
-└── presentation/
-
-21. Git branching strategy
- - The branching strategy support the project requirements each learner contributes through Git commits,features branches and assigned tasks
-
