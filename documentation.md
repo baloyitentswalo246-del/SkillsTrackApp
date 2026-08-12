@@ -26,6 +26,8 @@ The main Objectives are :
 
  - Firgma Board
  - Miro Board
+ - Chrome
+ - Github
  
  ## Firebase Authentication
 
