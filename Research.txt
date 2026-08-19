@@ -33,9 +33,9 @@ END IF
 END
 ........................................................................................................................
 
-FRAME 2 from Miro wireframe
+FRAME 2 and 3 from Miro wireframe
 
-# Sign-In Button on the learner control form after sussessful login to dashboard
+# Sign-In Button on the learner(and Assessor) control form after sussessful login to dashboard
 
 START
 INPUT Name          // The learner enters their name.
@@ -51,9 +51,9 @@ ENDIF
 STOP 
 
 .............................................................................................................................
-FRAME 3 from Miro wireframe
+FRAME 4 and 5 from Miro wireframe
 
-#  Registration Button on the learner
+#  Registration Button on the learner and Assessor
 
 START
 
@@ -73,7 +73,7 @@ IF all fields are completed THEN
   Return "please enter correct email"
   
 
-IF password contains atleast 8 characters AND password contains numbers and letters THEN
+IF password contains atleast 8 characters AND password contains numbers and letters AND confirm password === TRUE THEN
    Return password ELSE
    Return "password does not contain atleast characters, numbers and letters" THEN
   
@@ -85,5 +85,117 @@ ENDIF
 ENDIF
 
 STOP
+
+...............................................................................................................................
+FRAME 6 from Miro wireframe
+
+
+
+START
+
+INPUT Email
+INPUT NewPassword
+INPUT ConfirmNewPassword
+INPUT Link
+
+IF Email exist on records THEN
+   RETURN "Your password reset link has been sent to your email, click on it to reset your new password"
+   RETURN Reset password link form  
+ELSE
+   RETURN "Email not found, or does nor exist, or either check for errors or spelling."
+
+IF (link !== ""){                              // checks if link has been clicked on the email to open the reset password link form
+IF (NewPassword = ConfirmNewPassword) THEN
+   UPDATE Password 
+   RETURN "New Password successful updated"
+   RETURN Landing Page
+  {
+
+ELSE 
+   RETURN "Password Does Not Match"
+   
+ENDIF
+ENDIF
+
+STOP 
+
+................................................................................................................................
+Dashboard Assessor frame 1 from Miro wireframe
+
+# assessor dashboard 
+
+START
+
+DISPLAY Assessor Dashboard
+
+DISPLAY Search Bar
+DISPLAY Learners Button
+DISPLAY Reports Button
+DISPLAY Upload Learner Task Button
+DISPLAY Spport Bookings Button
+DISPLAY Learner Progress Button
+DISPLAY Open Game Button
+
+INPUT SearchItem
+
+IF SearchButtonClicked THEN
+   SEARCH SearchItem
+
+IF Found THEN
+   RETURN Results
+ELSE
+  DISPLAY "No Results Found"
+
+
+IF Learners Button is clicked THEN
+   RETURN Leaners Page
+ENDIF
+
+IF Reports Button IS clicked THEN
+   RETURN Reports Page
+ENDIF
+
+IF Upload Learner Task Button THEN
+   RETURN Upload Learner Task Page
+ENDIF
+
+IF Spport Bookings Button is clicked THEN
+   RETURN Spport Bookings Page
+ENDIF
+
+IF Learner Progress Button is clicked THEN
+   RETURN  Learner Progress Page
+ENDIF 
+
+IF Open Game Button is clicked THEN 
+   RETURN Open Game Page
+ENDIF
+
+STOP
+
+.....................................................................................................................................
+
+
+
+ 
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
