@@ -1,4 +1,5 @@
 User Stories and Acceptance Criteria Registration:
+
 As a learner, I want to register for an account so that I can use the portal.
 Acceptance criteria: A learner can enter the required registration information and create an account successfully. 
 
