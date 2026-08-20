@@ -35,7 +35,7 @@ END
 
 FRAME 2 and 3 from Miro wireframe
 
-# Sign-In Button on the learner(and Assessor) control form after sussessful login to dashboard
+# Sign-In Button on the learner(and Assessor) control form after successful login to dashboard
 
 START
 INPUT Name          // The learner enters their name.
