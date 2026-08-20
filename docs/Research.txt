@@ -8,7 +8,7 @@ START // where the program begins
 
 DISPLAY "Choose Role to Sign in" // This tells the system to show a heading or message to the user
 DISPLAY "Learner"
-DISPLAY "Assesor" // This tells the system to show a button labelled "Learner or Teacher" connected with HTML 
+DISPLAY "Assessor" // This tells the system to show a button labelled "Learner" or "Assessor" connected with HTML
 
 IF Learner Button is clicked THEN // The system checks whether the user clicked the Learner button = if(buttonClicked){
    SET Role = "Learner"           // The selected role is stored as "Learner"                      = let role = "Learner";
@@ -35,7 +35,7 @@ END
 
 FRAME 2 and 3 from Miro wireframe
 
-# Sign-In Button on the learner(and Assessor) control form after sussessful login to dashboard
+# Sign-In Button on the learner(and Assessor) control form after successful login to dashboard
 
 START
 INPUT Name          // The learner enters their name.
@@ -104,17 +104,14 @@ IF Email exist on records THEN
 ELSE
    RETURN "Email not found, or does nor exist, or either check for errors or spelling."
 
-IF (link !== ""){                              // checks if link has been clicked on the email to open the reset password link form
-IF (NewPassword = ConfirmNewPassword) THEN
-   UPDATE Password 
-   RETURN "New Password successful updated"
-   RETURN Landing Page
-  {
-
-ELSE 
-   RETURN "Password Does Not Match"
-   
-ENDIF
+IF (link !== "") THEN                       // checks if link has been clicked on the email to open the reset password link form
+  IF (NewPassword === ConfirmNewPassword) THEN
+     UPDATE Password
+     RETURN "New password successfully updated"
+     RETURN Landing Page
+  ELSE
+     RETURN "Password Does Not Match"
+  ENDIF
 ENDIF
 
 STOP 
@@ -132,7 +129,7 @@ DISPLAY "Search Bar"
 DISPLAY "Learners Button"
 DISPLAY "Reports Button"
 DISPLAY "Upload Learner Task Button"
-DISPLAY "Spport Bookings Button"
+DISPLAY "Support Bookings Button"
 DISPLAY "Learner Progress Button"
 DISPLAY "Open Game Button"
 
@@ -148,7 +145,7 @@ ELSE
 
 
 IF Learners Button is clicked THEN
-   RETURN Leaners Page
+   RETURN Learners Page
 ENDIF
 
 IF Reports Button IS clicked THEN
@@ -263,7 +260,7 @@ ENDIF
 STOP
 
 ....................................................................................................................
-Dasboard Assessor frame 3 from Miro wireframe
+Dashboard Assessor frame 3 from Miro wireframe
 
 # Support Bookings Page
 
