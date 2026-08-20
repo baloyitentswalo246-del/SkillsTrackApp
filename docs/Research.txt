@@ -260,7 +260,7 @@ ENDIF
 STOP
 
 ....................................................................................................................
-Dasboard Assessor frame 3 from Miro wireframe
+Dashboard Assessor frame 3 from Miro wireframe
 
 # Support Bookings Page
 
