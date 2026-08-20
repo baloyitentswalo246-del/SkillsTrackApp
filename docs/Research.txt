@@ -104,17 +104,14 @@ IF Email exist on records THEN
 ELSE
    RETURN "Email not found, or does nor exist, or either check for errors or spelling."
 
-IF (link !== ""){                              // checks if link has been clicked on the email to open the reset password link form
-IF (NewPassword = ConfirmNewPassword) THEN
-   UPDATE Password 
-   RETURN "New Password successful updated"
-   RETURN Landing Page
-  {
-
-ELSE 
-   RETURN "Password Does Not Match"
-   
-ENDIF
+IF (link !== "") THEN                       // checks if link has been clicked on the email to open the reset password link form
+  IF (NewPassword === ConfirmNewPassword) THEN
+     UPDATE Password
+     RETURN "New password successfully updated"
+     RETURN Landing Page
+  ELSE
+     RETURN "Password Does Not Match"
+  ENDIF
 ENDIF
 
 STOP 
