@@ -129,7 +129,7 @@ DISPLAY "Search Bar"
 DISPLAY "Learners Button"
 DISPLAY "Reports Button"
 DISPLAY "Upload Learner Task Button"
-DISPLAY "Spport Bookings Button"
+DISPLAY "Support Bookings Button"
 DISPLAY "Learner Progress Button"
 DISPLAY "Open Game Button"
 
