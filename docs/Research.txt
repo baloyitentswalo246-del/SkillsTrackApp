@@ -8,7 +8,7 @@ START // where the program begins
 
 DISPLAY "Choose Role to Sign in" // This tells the system to show a heading or message to the user
 DISPLAY "Learner"
-DISPLAY "Assesor" // This tells the system to show a button labelled "Learner or Teacher" connected with HTML 
+DISPLAY "Assessor" // This tells the system to show a button labelled "Learner" or "Assessor" connected with HTML
 
 IF Learner Button is clicked THEN // The system checks whether the user clicked the Learner button = if(buttonClicked){
    SET Role = "Learner"           // The selected role is stored as "Learner"                      = let role = "Learner";
