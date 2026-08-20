@@ -126,15 +126,15 @@ Dashboard Assessor frame 1 from Miro wireframe
 
 START
 
-DISPLAY Assessor Dashboard
+DISPLAY "Assessor Dashboard"
 
-DISPLAY Search Bar
-DISPLAY Learners Button
-DISPLAY Reports Button
-DISPLAY Upload Learner Task Button
-DISPLAY Spport Bookings Button
-DISPLAY Learner Progress Button
-DISPLAY Open Game Button
+DISPLAY "Search Bar"
+DISPLAY "Learners Button"
+DISPLAY "Reports Button"
+DISPLAY "Upload Learner Task Button"
+DISPLAY "Spport Bookings Button"
+DISPLAY "Learner Progress Button"
+DISPLAY "Open Game Button"
 
 INPUT SearchItem
 
@@ -174,10 +174,131 @@ ENDIF
 STOP
 
 .....................................................................................................................................
+Dashboard Assesor frame 2 from Miro wireframe
 
+# Reports Page
 
+START
 
- 
+DISPLAY "Navigation Menu Icon"
+
+IF MenuIconIsClicked THEN
+    DISPLAY "Dashboard Button"
+    DISPLAY "Support Bookings Button"
+    DISPLAY "Learners Button"
+    DISPLAY "Reports Button"
+    DISPLAY "Learner Progress Button"
+    DISPLAY "Upload Learner Tasks Button"
+    DISPLAY "Game Results Button"
+ENDIF
+
+DISPLAY "Reports"
+
+DISPLAY "Report Type Dropdown"
+DISPLAY "Start Date Button"
+DISPLAY "End Date Button"
+DISPLAY "Learner Dropdown"
+DISPLAY "Show Reports Button"
+
+DISPLAY "Total Learners Data"
+DISPLAY "Tasks Completed Data"
+DISPLAY "Outstanding Tasks Data"
+DISPLAY "Average Progress Data"
+DISPLAY "Average Game Score Data"
+DISPLAY "Learner Progress Data"
+DISPLAY "Game Results Reports Data"
+DISPLAY "Support Bookings Reports Data"
+
+IF ShowReportsButtonIsClicked THEN
+    GENERATE Report
+    DISPLAY Report Results
+ENDIF
+
+DISPLAY View Report Button
+DISPLAY Download Report Button
+
+IF ViewReportButtonIsClicked THEN
+    OPEN Selected Report
+ENDIF
+
+IF DownloadReportButtonIsClicked THEN
+    DOWNLOAD Selected Report
+ENDIF
+
+IF DashboardButtonIsClicked THEN
+    OPEN Dashboard Page
+ENDIF
+
+IF SupportBookingsButtonIsClicked THEN
+    OPEN Support Bookings Page
+ENDIF
+
+IF LearnersButtonIsClicked THEN
+    OPEN Learners Page
+ENDIF
+
+IF ReportsButtonIsClicked THEN
+    OPEN Reports Page
+ENDIF
+
+IF LearnerProgressButtonIsClicked THEN
+    OPEN Learner Progress Page
+ENDIF
+
+IF UploadLearnerTasksButtonIsClicked THEN
+    OPEN Upload Tasks Page
+ENDIF
+
+IF GameResultsButtonIsClicked THEN
+    OPEN Game Results Page
+ENDIF
+
+DISPLAY Logout Button
+
+IF LogoutButtonIsClicked THEN
+    LOGOUT User
+    OPEN Login Page
+ENDIF
+
+STOP
+
+....................................................................................................................
+Dasboard Assessor frame 3 from Miro wireframe
+
+# Support Bookings Page
+
+START
+
+DISPLAY "Student Booking Details"
+
+DISPLAY "Learner Name"
+DISPLAY "Booking Date"
+DISPLAY "Booking Time"
+DISPLAY "Support Type"
+DISPLAY "Booking Status"
+
+DISPLAY "Approve Button"
+DISPLAY "Reject Button"
+DISPLAY "Reschedule Button"
+
+IF ApproveButtonIsClicked THEN
+ UPDATE Booking Status to "Approved"
+    DISPLAY "Booking Approved Successfully"
+ENDIF
+
+IF RejectButtonIsClicked THEN
+    UPDATE Booking Status to "Rejected"
+    DISPLAY "Booking Rejected Successfully"
+ENDIF
+
+IF RescheduleButtonIsClicked THEN
+    INPUT New Date
+    INPUT New Time
+    UPDATE Booking Date and Time
+    DISPLAY "Booking Rescheduled Successfully"
+ENDIF
+
+STOP
 
 
 
