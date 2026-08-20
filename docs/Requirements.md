@@ -1,4 +1,5 @@
 Requirements Functional requirements: 
+
 Users must be able to register, sign in and sign out.
 The dashboard must display task totals, completed work, outstanding work and calculated progress. 
 Learners must be able to create, view, update, complete and delete tasks. 
