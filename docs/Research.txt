@@ -145,7 +145,7 @@ ELSE
 
 
 IF Learners Button is clicked THEN
-   RETURN Leaners Page
+   RETURN Learners Page
 ENDIF
 
 IF Reports Button IS clicked THEN
