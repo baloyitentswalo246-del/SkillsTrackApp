@@ -75,4 +75,5 @@ The final system should allow learners to register, log in, manage tasks, book s
 •	GitHub Repository: [https://github.com/baloyitentswalo246-del/SkillsTrackApp]
 •	GitHub Project Board: [https://github.com/users/baloyitentswalo246-del/projects/1/views/2]
 •	Figma: [Insert Figma link]
-•	Miro: [https://teams.microsoft.com/l/message/48:notes/1786536050301?context=%7B%22contextType%22%3A%22chat%22%2C%22oid%22%3A%228%3Aorgid%3Af8988c10-3e27-4993-8216-55d87aef9019%22%7D]
+•
+
