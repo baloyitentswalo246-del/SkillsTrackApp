@@ -35,6 +35,7 @@ The main objective of the SkillsTrackApp Learner Support Portal is to provide le
 7. TEAM MEMBERS AND RESPONSIBILITIES
 
 8. REPOSITORY STUCTURE
+
     SkillsTrackApp
      │
      ├── README.md
