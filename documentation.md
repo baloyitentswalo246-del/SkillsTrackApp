@@ -67,13 +67,12 @@ Wireframes will be created in Miro before coding. Planned screens include the Lo
 Miro link: [https://teams.microsoft.com/l/message/48:notes/1786536050301?context=%7B%22contextType%22%3A%22chat%22%2C%22oid%22%3A%228%3Aorgid%3Af8988c10-3e27-4993-8216-55d87aef9019%22%7D]
 8. UI Designs
 The UI designs will show the visual appearance of the portal, including navigation, forms, buttons, cards, colours, typography and other interface elements.
-Figma link: [Insert team Figma link here]
-Miro board link: [Insert team Miro link here]
+Figma link: [https://www.figma.com/design/sEPbrHEHrquXcC9agl3Lom/Untitled?node-id=0-1&t=Fb1qVJEX8Q6WV2ED-0]
 9. Test Plan
 The final system should allow learners to register, log in, manage tasks, book support sessions, view progress and play the game, while assessors can view learner information, bookings, progress and game results.
 10. Repository Links
 •	GitHub Repository: [https://github.com/baloyitentswalo246-del/SkillsTrackApp]
 •	GitHub Project Board: [https://github.com/users/baloyitentswalo246-del/projects/1/views/2]
-•	Figma: [Insert Figma link]
+•	Figma: [https://www.figma.com/design/sEPbrHEHrquXcC9agl3Lom/Untitled?node-id=0-1&t=Fb1qVJEX8Q6WV2ED-0]
 •
 
