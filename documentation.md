@@ -67,11 +67,11 @@ Wireframes will be created in Miro before coding. Planned screens include the Lo
  Miro link: [https://miro.com/app/board/uXjVH0kFKk4=/?share_link_id=671242774097]
 8. UI Designs
 The UI designs will show the visual appearance of the portal, including navigation, forms, buttons, cards, colours, typography and other interface elements.
-Figma link: [https://www.figma.com/design/sEPbrHEHrquXcC9agl3Lom/Untitled?node-id=0-1&t=Fb1qVJEX8Q6WV2ED-0]
+Figma link: [https://www.figma.com/design/sEPbrHEHrquXcC9agl3Lom/SkillTrack-learner-Support-Portal?node-id=0-1&p=f&t=Fb1qVJEX8Q6WV2ED-0]
 9. Test Plan
 The final system should allow learners to register, log in, manage tasks, book support sessions, view progress and play the game, while assessors can view learner information, bookings, progress and game results.
 10. Repository Links
 -	GitHub Repository: [https://github.com/baloyitentswalo246-del/SkillsTrackApp]
 -	GitHub Project Board: [https://github.com/users/baloyitentswalo246-del/projects/1/views/2]
--	Figma: [https://www.figma.com/design/sEPbrHEHrquXcC9agl3Lom/Untitled?node-id=0-1&t=Fb1qVJEX8Q6WV2ED-0]
+-	Figma: [https://www.figma.com/design/sEPbrHEHrquXcC9agl3Lom/SkillTrack-learner-Support-Portal?node-id=0-1&p=f&t=Fb1qVJEX8Q6WV2ED-0]
 - Miro link: [https://miro.com/app/board/uXjVH0kFKk4=/?share_link_id=671242774097]
