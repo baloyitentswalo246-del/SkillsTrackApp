@@ -3,18 +3,18 @@ SkillsTrack Training Centre requires a browser-based Learner Support Portal to b
 The application will use JavaScript for application logic and Firebase Realtime Database for data storage. Authentication will be used to manage registered users and their authenticated state.
 2. Requirements
 Functional requirements:
-•	Users must be able to register, sign in and sign out.
-•	The dashboard must display task totals, completed work, outstanding work and calculated progress.
-•	Learners must be able to create, view, update, complete and delete tasks.
-•	Task deletion must require confirmation.
-•	Learners must be able to submit a validated support-session booking.
-•	Users must be able to search, filter or sort tasks or resources.
-•	A non-sensitive preference must be stored using a cookie.
-•	The application must provide a printable progress summary.
-•	The application must include JavaScript timer-based animation and controlled multimedia.
-•	The application must include an operable basic JavaScript game.
-•	Firebase Realtime Database must be used for application data.
-•	The project must use Git and GitHub for version control and collaboration.
+-	Users must be able to register, sign in and sign out.
+-	The dashboard must display task totals, completed work, outstanding work and calculated progress.
+-	Learners must be able to create, view, update, complete and delete tasks.
+-	Task deletion must require confirmation.
+-	Learners must be able to submit a validated support-session booking.
+-	Users must be able to search, filter or sort tasks or resources.
+-	A non-sensitive preference must be stored using a cookie.
+-	The application must provide a printable progress summary.
+-	The application must include JavaScript timer-based animation and controlled multimedia.
+-	The application must include an operable basic JavaScript game.
+-	Firebase Realtime Database must be used for application data.
+-	The project must use Git and GitHub for version control and collaboration.
 3. Research
 Our research shows that JavaScript, Firebase, GitHub, Figma and Miro are suitable tools for developing the SkillsTrack Learner Support Portal. JavaScript will provide the application functionality, Firebase will provide authentication and data storage, Git and GitHub will support version control and teamwork, while Figma and Miro will support design and project planning. Security Rules will be used to help protect learner data.
 4. Meeting Minutes
