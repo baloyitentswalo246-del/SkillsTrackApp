@@ -71,7 +71,7 @@ Figma link: [https://www.figma.com/design/sEPbrHEHrquXcC9agl3Lom/Untitled?node-i
 9. Test Plan
 The final system should allow learners to register, log in, manage tasks, book support sessions, view progress and play the game, while assessors can view learner information, bookings, progress and game results.
 10. Repository Links
-•	GitHub Repository: [https://github.com/baloyitentswalo246-del/SkillsTrackApp]
-•	GitHub Project Board: [https://github.com/users/baloyitentswalo246-del/projects/1/views/2]
-•	Figma: [https://www.figma.com/design/sEPbrHEHrquXcC9agl3Lom/Untitled?node-id=0-1&t=Fb1qVJEX8Q6WV2ED-0]
-• Miro link: [https://miro.com/app/board/uXjVH0kFKk4=/?share_link_id=671242774097]
+-	GitHub Repository: [https://github.com/baloyitentswalo246-del/SkillsTrackApp]
+-	GitHub Project Board: [https://github.com/users/baloyitentswalo246-del/projects/1/views/2]
+-	Figma: [https://www.figma.com/design/sEPbrHEHrquXcC9agl3Lom/Untitled?node-id=0-1&t=Fb1qVJEX8Q6WV2ED-0]
+- Miro link: [https://miro.com/app/board/uXjVH0kFKk4=/?share_link_id=671242774097]
