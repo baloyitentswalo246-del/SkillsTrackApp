@@ -1,100 +1,143 @@
-1. PROJECT TITLE
-
-8. REPOSITORY STUCTURE
-   ` SkillsTrackApp
-     │
-     ├── README.md
-     ├── CHANGELOG.md
-     ├── LICENSE
-     ├── .gitignore
-     │
-     ├── docs/
-     ├── designs/
-     ├── src/
-     ├── assets/
-     └── presentation/`
-10. GIT BRANCHING STRATEGY
-Our team uses Git branches to work on different features of the SkillsTrack project.
+# SkillsTrack – Learner Support Portal
  
-- `main` – Final and stable version of the project.
-- `Kamohelo` – Login and registration.
-- `Grace` – Task management.
-- `Judith` – Support booking and dashboard.
-
-10. CONTRIBUTION GUIDELINES
-
-All team members should follow these guidelines when working on the project:
-- Work on your assigned branch.
-- Do not make changes directly to the `main` branch.
-- Write clear and meaningful commit messages.
-- Test your work before submitting it.
-- Keep the code clean and organised.
-- Do not delete or change another team member's work without discussing it with the team.
-- Review changes before merging them into `main`.
-- Keep the documentation updated when changes are made.
-
-11. SETUP INSTRUCTION
+## Project Overview
  
-1. Clone the repository from GitHub.
-2. Open the project in Visual Studio Code.
-3. Connect the project to Firebase.
-4. Enable Firebase Authentication and Realtime Database.
+SkillsTrack is a browser-based learner support application designed to help learners manage their learning activities and track their progress.
+ 
+The application allows learners to register, sign in, manage tasks, book support sessions, view their progress, and access a mini-game.
+ 
+All important user and application data is stored using Firebase.
+ 
+## Project Objectives
+ 
+The main objectives of the project are to:
+ 
+- Create a simple and user-friendly learner portal.
+- Allow learners to register and log in securely.
+- Allow learners to create, view, update, and delete tasks.
+- Allow learners to book support sessions.
+- Display learner progress.
+- Store application data in Firebase.
+- Allow team members to work together using Git and GitHub.
+ 
+## Main Features
+ 
+**Learner Registration and Login**
+ 
+Learners can create an account and sign in to access the application.
+ 
+**Task Management**
+ 
+Learners can:
+ 
+- Create tasks
+- View tasks
+- Update tasks
+- Delete tasks
+ 
+**Support Booking**
+ 
+Learners can book support sessions when they need assistance.
+ 
+**Progress Tracking**
+ 
+Learners can view their progress and completed learning activities.
+ 
+**Mini-Game**
+ 
+The application includes a small educational game that allows learners to test their knowledge and view their results.
+ 
+**Assessor Dashboard**
+ 
+Assessors can view learner information, check learner progress, and manage learner-related tasks.
+ 
+## Technologies Used
+ 
+- HTML
+- CSS
+- JavaScript
+- Firebase Authentication
+- Firebase Realtime Database
+- Git
+- GitHub
+- Visual Studio Code
+- Google Chrome
+ 
+## Project Structure
+ 
+SkillsTrack/
+│
+├── README.md
+├── CHANGELOG.md
+├── LICENSE
+├── .gitignore
+│
+├── docs/
+│   ├── Client-Brief.md
+│   ├── Meeting-Minutes.md
+│   |── Requirements.md
+|   |── Research.md
+│   ├── Test-Plan.md
+│   └── UI-design.md
+│   ├── User-Cases.md
+│   ├── User-stories.md
+│   └── 
+└── 
+ 
+## Team Roles
+ 
+**Team Member**| **Responsibility**
+- Kamohelo| Login and Registration
+- Grace| Task Management
+- Judith| Support Booking and Dashboard
+ 
+## Firebase
+ 
+Firebase is used to store and manage application data.
+ 
+The project uses:
+ 
+- **Firebase Authentication** for user registration and login.
+- **Firebase Realtime Database** for storing learner and application data.
+ 
+## Git and GitHub
+ 
+Git and GitHub are used for version control and teamwork.
+ 
+The team uses separate branches for different features before combining completed work into the main branch.
+ 
+Example branches:
+ 
+main
+Grace
+Judith
+Kamohelo
+ 
+## How to Run the Project
+ 
+1. Download or clone the project from GitHub.
+2. Open the project folder in Visual Studio Code.
+3. Open the project files.
+4. Make sure the Firebase configuration is correctly connected.
 5. Open the application in Google Chrome.
-6. Register or log in to test the application.
-
-3. CLIENT BRIEF SUMMARY
+6. Register or log in to use the application.
  
-The client requires a browser-based application where learners can register, sign in, manage tasks, book support sessions, view progress, and play a mini-game. All data must be stored in Firebase.
-
-13. CHANGELOG
-All important changes made to the SkillsTrackAPP Learner Support Portal are recorded here.
+## Testing
  
-Project Planning
+The application will be tested to make sure that:
  
-Added
-- Created the SkillsTrackAPP project.
-- Added the project README.
-- Created the project repository.
-- Added the initial project structure.
-- Created the Git branching strategy.
-- Assigned tasks to team members.
-
-Design
+- Registration works correctly.
+- Login works correctly.
+- Tasks can be created, updated, viewed, and deleted.
+- Support sessions can be booked.
+- Learner progress is displayed correctly.
+- Firebase stores and retrieves data correctly.
+- The application works correctly in the browser.
  
- Added
-- Created learner dashboard wireframes.
-- Created assessor dashboard wireframes.
-- Created task management wireframes.
-- Created support booking wireframes.
-- Created reports and game results wireframes.
-- Created UI designs in Figma.
+## Project Status
  
-Development
+The project is currently under development. Features will be tested and improved before the final submission.
  
- Added
-- Started learner registration and login.
-- Started task management.
-- Started support booking.
-- Started learner and assessor dashboards.
-- Added Firebase connection.
+## Authors
  
-Testing
- 
- Added
-- Tested login and registration.
-- Tested task management.
-- Tested support bookings.
-- Tested learner progress.
-- Tested game results.
-- Fixed errors found during testing.
- 
-Final Version
-
- Added
-- Completed the main application features.
-- Completed Firebase integration.
-- Completed testing.
-- Completed project documentation.
-- Prepared the project for final submission.
-
-14. GITHUB PROJECT BOARD
+Squad 6
