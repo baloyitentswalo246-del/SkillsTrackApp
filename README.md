@@ -1,61 +1,143 @@
-1. PROJECT TITLE
-
-SkillsTrackApp
+# SkillsTrack – Learner Support Portal
  
-2. PROJECT OVERRVIEW
-   
-The SkillsTrackApp Learner Support Portal is a web application that help learners manage their learning task, book support sessions, track their progress and acess learning resources. It uses HTML, CSS, JavaScript, Firebase and GitHub.
-
-3. CLIENT BRIEF SUMMARY
+## Project Overview
  
-The client requires a browser-based application where learners can register, sign in, manage tasks, book support sessions, view progress, and play a mini-game. All data must be stored in Firebase.
-
-4. PROJECT OBJECTIVE
-
-The main objective of the SkillsTrackApp Learner Support Portal is to provide learners with a simple platform for managing their learning activities. The system will provide secure registration and login, task management, support-session booking, progress tracking and Firebase data storage. The team will use GitHub to collaborate, manage versions and track individual contributions.
-
-5. TECHNOLOGICS
-
-1. HTML - Will be used to create the stucture of the SkillsTrackApp Learner Support Portal, including pages, forms, buttons, navigation menus and other elements that users interact with.
-2. CSS - Will be used to style and design the portal. It wii control colours, fonts, spacing, layouts, buttons and overall appearance of the application.
-3. JavaScript - Will be used for the functionality and logic of the application. It will handle user interactions, forms validatoin, task management, calculations, DOM updated and communication with Firebase. 
-4. Firebase realtime Database - Eill be used store retrieve application data, such as leaner profiles, task, support bookings and game scores.
-5. Firebase Authentication - Will be used to manage user registration, login, logout and authenticated user's states. 
- . Git and GiHub - Will be used for vision control teamwork.
-   
-6. DEVELOPMENT TOOLS
-   
-1. Visual Studio Code - Used to write, edit, format and debug the HTML, CSS and Javascript code.
-2. Git - Used to track code change, create branches and save versions of the project.
-3. GitHub - Used to store the project online and allow team members to colloborate using branches, commits and pull requests.
-4. Google Chrome - Used to run, test and debug the web application using brower Developer Tools.
-5. Figma - Used to create wireframes and design the user interface.
-6. Miro - Used for brainstorming, planning flowcharts and organising project ideas.
+SkillsTrack is a browser-based learner support application designed to help learners manage their learning activities and track their progress.
  
-7. TEAM MEMBERS AND RESPONSIBILITIES
-
-8. REPOSITORY STUCTURE
-
-    SkillsTrackApp
-     │
-     ├── README.md
-     ├── CHANGELOG.md
-     ├── LICENSE
-     ├── .gitignore
-     │
-     ├── docs/
-     ├── designs/
-     ├── src/
-     ├── assets/
-     └── presentation/
-9. GIT BRANCHING STRATEGY
-
-10. CONTRIBUTION GUIDELINES
-
-11. SETUP INSTRUCTIONS
-
-12. PROJECT MILESTONE
-
-13. CHANGELOG
-
-14. GITHUB PROJECT BOARD
+The application allows learners to register, sign in, manage tasks, book support sessions, view their progress, and access a mini-game.
+ 
+All important user and application data is stored using Firebase.
+ 
+## Project Objectives
+ 
+The main objectives of the project are to:
+ 
+- Create a simple and user-friendly learner portal.
+- Allow learners to register and log in securely.
+- Allow learners to create, view, update, and delete tasks.
+- Allow learners to book support sessions.
+- Display learner progress.
+- Store application data in Firebase.
+- Allow team members to work together using Git and GitHub.
+ 
+## Main Features
+ 
+**Learner Registration and Login**
+ 
+Learners can create an account and sign in to access the application.
+ 
+**Task Management**
+ 
+Learners can:
+ 
+- Create tasks
+- View tasks
+- Update tasks
+- Delete tasks
+ 
+**Support Booking**
+ 
+Learners can book support sessions when they need assistance.
+ 
+**Progress Tracking**
+ 
+Learners can view their progress and completed learning activities.
+ 
+**Mini-Game**
+ 
+The application includes a small educational game that allows learners to test their knowledge and view their results.
+ 
+**Assessor Dashboard**
+ 
+Assessors can view learner information, check learner progress, and manage learner-related tasks.
+ 
+## Technologies Used
+ 
+- HTML
+- CSS
+- JavaScript
+- Firebase Authentication
+- Firebase Realtime Database
+- Git
+- GitHub
+- Visual Studio Code
+- Google Chrome
+ 
+## Project Structure
+ 
+SkillsTrack/
+│
+├── README.md
+├── CHANGELOG.md
+├── LICENSE
+├── .gitignore
+│
+├── docs/
+│   ├── Client-Brief.md
+│   ├── Meeting-Minutes.md
+│   |── Requirements.md
+|   |── Research.md
+│   ├── Test-Plan.md
+│   └── UI-design.md
+│   ├── User-Cases.md
+│   ├── User-stories.md
+│   └── 
+└── 
+ 
+## Team Roles
+ 
+**Team Member**| **Responsibility**
+- Kamohelo| Login and Registration
+- Grace| Task Management
+- Judith| Support Booking and Dashboard
+ 
+## Firebase
+ 
+Firebase is used to store and manage application data.
+ 
+The project uses:
+ 
+- **Firebase Authentication** for user registration and login.
+- **Firebase Realtime Database** for storing learner and application data.
+ 
+## Git and GitHub
+ 
+Git and GitHub are used for version control and teamwork.
+ 
+The team uses separate branches for different features before combining completed work into the main branch.
+ 
+Example branches:
+ 
+main
+Grace
+Judith
+Kamohelo
+ 
+## How to Run the Project
+ 
+1. Download or clone the project from GitHub.
+2. Open the project folder in Visual Studio Code.
+3. Open the project files.
+4. Make sure the Firebase configuration is correctly connected.
+5. Open the application in Google Chrome.
+6. Register or log in to use the application.
+ 
+## Testing
+ 
+The application will be tested to make sure that:
+ 
+- Registration works correctly.
+- Login works correctly.
+- Tasks can be created, updated, viewed, and deleted.
+- Support sessions can be booked.
+- Learner progress is displayed correctly.
+- Firebase stores and retrieves data correctly.
+- The application works correctly in the browser.
+ 
+## Project Status
+ 
+The project is currently under development. Features will be tested and improved before the final submission.
+ 
+## Authors
+ 
+Squad 6
