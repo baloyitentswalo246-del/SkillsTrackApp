@@ -55,7 +55,7 @@ Our team uses Git branches to work on different features of the SkillsTrack proj
 - `Grace` – Task management.
 - `Judith` – Support booking and dashboard.
 
-10. CONTRIBUTION GUIDELINES
+11. CONTRIBUTION GUIDELINES
 
 All team members should follow these guidelines when working on the project:
 - Work on your assigned branch.
@@ -75,10 +75,6 @@ All team members should follow these guidelines when working on the project:
 4. Enable Firebase Authentication and Realtime Database.
 5. Open the application in Google Chrome.
 6. Register or log in to test the application.
-
-3. CLIENT BRIEF SUMMARY
- 
-The client requires a browser-based application where learners can register, sign in, manage tasks, book support sessions, view progress, and play a mini-game. All data must be stored in Firebase.
 
 13. CHANGELOG
 All important changes made to the SkillsTrackAPP Learner Support Portal are recorded here.
@@ -132,3 +128,4 @@ Final Version
 - Prepared the project for final submission.
 
 14. GITHUB PROJECT BOARD
+ 
