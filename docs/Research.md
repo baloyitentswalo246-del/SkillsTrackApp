@@ -1,319 +1,98 @@
-PSEUDOCODE RESEARCH. 
-
-Frame 1 from Miro wireframe.
-
-# Choose role to sign in
-
-START // where the program begins 
-
-DISPLAY "Choose Role to Sign in" // This tells the system to show a heading or message to the user
-DISPLAY "Learner"
-DISPLAY "Assessor" // This tells the system to show a button labelled "Learner" or "Assessor" connected with HTML
-
-IF Learner Button is clicked THEN // The system checks whether the user clicked the Learner button = if(buttonClicked){
-   SET Role = "Learner"           // The selected role is stored as "Learner"                      = let role = "Learner";
-   OPEN Learner Sign-in Page      // The system redirects the user to the Learner login page.      = window.location.href = "learner-login.html";
-END IF                            // Marks the end of the decision block.                          = }
-
-IF Assesor Button is clicked THEN
-   Set Role = "Assessor"  
-   Open Assesor Sign-in Page
-END IF
-
-IF Register for Assesor Button is clicked THEN 
-  Set Role = "Assesor"
-  Open Registration for Assesor Page
-END IF
-
-IF Register for Learner Button is clicked THEN
-   Set Role = "Learner"
-   Open Registration for Learner Page
-END IF
-
-END
-........................................................................................................................
-
-FRAME 2 and 3 from Miro wireframe
-
-# Sign-In Button on the learner(and Assessor) control form after successful login to dashboard
-
-START
-INPUT Name          // The learner enters their name.
-INPUT Password                
+# Research
  
-IF LoginDetailsAreValid THEN   // The system checks whether the login details match stored records.
-   DISPLAY "Sign-in Successful" // Shows a success message to the learner.
-   Open Learner Dashboard      // 
-ELSE
-   DISPLAY "Sign-in Failed, Invalid name or password" // If the credentials are incorrect, an error message is shown.
-ENDIF
-
-STOP 
-
-.............................................................................................................................
-FRAME 4 and 5 from Miro wireframe
-
-#  Registration Button on the learner and Assessor
-
-START
-
-INPUT Name
-INPUT Surname
-INPUT Email
-INPUT Password
-
-IF all fields are completed THEN 
-
-  IF Name contains at least 4 characters AND Name !contain numbers THEN 
-  Return name ELSE
-  Return "please enter your full name" 
-
-  IF email address is correct THEN
-  Return email address ELSE
-  Return "please enter correct email"
-  
-
-IF password contains atleast 8 characters AND password contains numbers and letters AND confirm password === TRUE THEN
-   Return password ELSE
-   Return "password does not contain atleast characters, numbers and letters" THEN
-  
-  SAVE Learner Details
-  DISPLAY "Registration Successful"
-  OPEN Learner Login Form Page
-
-ENDIF
-ENDIF
-
-STOP
-
-...............................................................................................................................
-FRAME 6 from Miro wireframe
-
-
-
-START
-
-INPUT Email
-INPUT NewPassword
-INPUT ConfirmNewPassword
-INPUT Link
-
-IF Email exist on records THEN
-   RETURN "Your password reset link has been sent to your email, click on it to reset your new password"
-   RETURN Reset password link form  
-ELSE
-   RETURN "Email not found, or does nor exist, or either check for errors or spelling."
-
-IF (link !== "") THEN                       // checks if link has been clicked on the email to open the reset password link form
-  IF (NewPassword === ConfirmNewPassword) THEN
-     UPDATE Password
-     RETURN "New password successfully updated"
-     RETURN Landing Page
-  ELSE
-     RETURN "Password Does Not Match"
-  ENDIF
-ENDIF
-
-STOP 
-
-................................................................................................................................
-Dashboard Assessor frame 1 from Miro wireframe
-
-# assessor dashboard 
-
-START
-
-DISPLAY "Assessor Dashboard"
-
-DISPLAY "Search Bar"
-DISPLAY "Learners Button"
-DISPLAY "Reports Button"
-DISPLAY "Upload Learner Task Button"
-DISPLAY "Support Bookings Button"
-DISPLAY "Learner Progress Button"
-DISPLAY "Open Game Button"
-
-INPUT SearchItem
-
-IF SearchButtonClicked THEN
-   SEARCH SearchItem
-
-IF Found THEN
-   RETURN Results
-ELSE
-  DISPLAY "No Results Found"
-
-
-IF Learners Button is clicked THEN
-   RETURN Learners Page
-ENDIF
-
-IF Reports Button IS clicked THEN
-   RETURN Reports Page
-ENDIF
-
-IF Upload Learner Task Button THEN
-   RETURN Upload Learner Task Page
-ENDIF
-
-IF Spport Bookings Button is clicked THEN
-   RETURN Spport Bookings Page
-ENDIF
-
-IF Learner Progress Button is clicked THEN
-   RETURN  Learner Progress Page
-ENDIF 
-
-IF Open Game Button is clicked THEN 
-   RETURN Open Game Page
-ENDIF
-
-STOP
-
-.....................................................................................................................................
-Dashboard Assesor frame 2 from Miro wireframe
-
-# Reports Page
-
-START
-
-DISPLAY "Navigation Menu Icon"
-
-IF MenuIconIsClicked THEN
-    DISPLAY "Dashboard Button"
-    DISPLAY "Support Bookings Button"
-    DISPLAY "Learners Button"
-    DISPLAY "Reports Button"
-    DISPLAY "Learner Progress Button"
-    DISPLAY "Upload Learner Tasks Button"
-    DISPLAY "Game Results Button"
-ENDIF
-
-DISPLAY "Reports"
-
-DISPLAY "Report Type Dropdown"
-DISPLAY "Start Date Button"
-DISPLAY "End Date Button"
-DISPLAY "Learner Dropdown"
-DISPLAY "Show Reports Button"
-
-DISPLAY "Total Learners Data"
-DISPLAY "Tasks Completed Data"
-DISPLAY "Outstanding Tasks Data"
-DISPLAY "Average Progress Data"
-DISPLAY "Average Game Score Data"
-DISPLAY "Learner Progress Data"
-DISPLAY "Game Results Reports Data"
-DISPLAY "Support Bookings Reports Data"
-
-IF ShowReportsButtonIsClicked THEN
-    GENERATE Report
-    DISPLAY Report Results
-ENDIF
-
-DISPLAY View Report Button
-DISPLAY Download Report Button
-
-IF ViewReportButtonIsClicked THEN
-    OPEN Selected Report
-ENDIF
-
-IF DownloadReportButtonIsClicked THEN
-    DOWNLOAD Selected Report
-ENDIF
-
-IF DashboardButtonIsClicked THEN
-    OPEN Dashboard Page
-ENDIF
-
-IF SupportBookingsButtonIsClicked THEN
-    OPEN Support Bookings Page
-ENDIF
-
-IF LearnersButtonIsClicked THEN
-    OPEN Learners Page
-ENDIF
-
-IF ReportsButtonIsClicked THEN
-    OPEN Reports Page
-ENDIF
-
-IF LearnerProgressButtonIsClicked THEN
-    OPEN Learner Progress Page
-ENDIF
-
-IF UploadLearnerTasksButtonIsClicked THEN
-    OPEN Upload Tasks Page
-ENDIF
-
-IF GameResultsButtonIsClicked THEN
-    OPEN Game Results Page
-ENDIF
-
-DISPLAY Logout Button
-
-IF LogoutButtonIsClicked THEN
-    LOGOUT User
-    OPEN Login Page
-ENDIF
-
-STOP
-
-....................................................................................................................
-Dashboard Assessor frame 3 from Miro wireframe
-
-# Support Bookings Page
-
-START
-
-DISPLAY "Student Booking Details"
-
-DISPLAY "Learner Name"
-DISPLAY "Booking Date"
-DISPLAY "Booking Time"
-DISPLAY "Support Type"
-DISPLAY "Booking Status"
-
-DISPLAY "Approve Button"
-DISPLAY "Reject Button"
-DISPLAY "Reschedule Button"
-
-IF ApproveButtonIsClicked THEN
- UPDATE Booking Status to "Approved"
-    DISPLAY "Booking Approved Successfully"
-ENDIF
-
-IF RejectButtonIsClicked THEN
-    UPDATE Booking Status to "Rejected"
-    DISPLAY "Booking Rejected Successfully"
-ENDIF
-
-IF RescheduleButtonIsClicked THEN
-    INPUT New Date
-    INPUT New Time
-    UPDATE Booking Date and Time
-    DISPLAY "Booking Rescheduled Successfully"
-ENDIF
-
-STOP
-
-
-
+## Introduction
  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
+Research was carried out to understand the tools and technologies needed to develop the SkillsTrack Learner Support Portal.
+ 
+The research focused on web development, Firebase, UI design, version control and user-friendly application design.
+ 
+## HTML
+ 
+HTML is used to create the structure of the web application.
+ 
+It will be used to create:
+ 
+- Pages
+- Forms
+- Buttons
+- Input fields
+- Navigation sections
+ 
+## CSS
+ 
+CSS is used to style the application.
+ 
+It will be used to create:
+ 
+- Colours
+- Layouts
+- Buttons
+- Forms
+- Dashboards
+- Responsive designs
+ 
+## JavaScript
+ 
+JavaScript is used to add functionality to the application.
+ 
+It will be used for:
+ 
+- Task management
+- Form validation
+- Progress calculation
+- Game functionality
+- Displaying information
+- Connecting the application to Firebase
+ 
+## Firebase
+ 
+Firebase will be used as the backend for the application.
+ 
+### Firebase Authentication
+ 
+Firebase Authentication will be used for:
+ 
+- Learner registration
+- Login
+- Assessor login
+- Logout
+ 
+### Firebase Realtime Database
+ 
+Firebase Realtime Database will be used to store:
+ 
+- User information
+- Tasks
+- Support bookings
+- Game results
+- Messages
+ 
+## Git and GitHub
+ 
+Git and GitHub will be used for version control and teamwork.
+ 
+The team will use different feature branches so that members can work on their assigned features without directly changing the main branch.
+ 
+## Figma
+ 
+Figma will be used to create:
+ 
+- Wireframes
+- User interface designs
+- Dashboard designs
+- Forms and other screen layouts
+ 
+## Miro
+ 
+Miro will be used for:
+ 
+- Brainstorming
+- Planning
+- Organising ideas
+- Discussing the project requirements
+ 
+## Conclusion
+ 
+The research helped the team understand the technologies and tools required to develop the SkillsTrack Learner Support Portal.
+ 
+The selected tools will help the team create, design, test and manage the application effectively.
