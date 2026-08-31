@@ -11,7 +11,6 @@ import {
 const firebaseConfig = {
   apiKey: "PASTE_YOUR_API_KEY_HERE",
   authDomain: "skillstrack-362c4.firebaseapp.com",
-  databaseURL: "https://skillstrack-362c4-default-rtdb.firebaseio.com",
   projectId: "skillstrack-362c4",
 };
  
