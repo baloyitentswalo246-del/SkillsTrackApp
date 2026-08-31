@@ -1,10 +1,10 @@
-Firebase Planning
+# Firebase Planning
  
-Purpose
+## Purpose
  
 Firebase will be used as the backend for our project. It will store user information and project data.
  
-Firebase Authentication
+## Firebase Authentication
  
 We will use Firebase Authentication for:
  
@@ -12,7 +12,7 @@ We will use Firebase Authentication for:
 - User login
 - User logout
  
-Firebase Realtime Database
+## Firebase Realtime Database
  
 We will use the database to store:
  
@@ -22,7 +22,7 @@ We will use the database to store:
 - Learner progress
 - Game results
  
-Firebase Structure
+## Firebase Structure
  
 Firebase
 │
@@ -54,7 +54,7 @@ Firebase
         ├── Score
         └── Date
  
-How Firebase Will Be Used
+## How Firebase Will Be Used
  
 1. The user registers or logs in.
 2. Firebase checks the user's account.
@@ -62,6 +62,6 @@ How Firebase Will Be Used
 4. Information is saved in the Firebase database.
 5. The assessor can view learner information and progress.
  
-Security
+## Security
  
 Only authorised users will be able to access the information they need.
