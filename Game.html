@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillsTrackApp - 6CODE Fill Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Top Bar -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <img src="https://via.placeholder.com/120x72?text=SkillsTrack" alt="Logo" class="logo" />
+      <span class="topbar-title">6CODE GAME LEARNER DASHBOARD</span>
+    </div>
+    <div class="topbar-right">
+      <span>LEARNER</span>
+      <a href="#">Cookie Policy</a>
+      <a href="#">Privacy</a>
+      <a href="#">Terms &amp; Conditions</a>
+    </div>
+  </header>
+
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <nav>
+        <a href="#" class="nav-item active">🏠 Dashboard</a>
+        <a href="#" class="nav-item">📋 My Tasks</a>
+        <a href="#" class="nav-item">✅ Completed Work</a>
+        <a href="#" class="nav-item">📌 Outstanding Work</a>
+        <a href="#" class="nav-item">📊 Calculated Progress</a>
+        <a href="#" class="nav-item">📞 Book Support</a>
+        <a href="#" class="nav-item">🖨️ Print Progress</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <button class="back-btn" onclick="location.reload()">← Back</button>
+
+      <div class="game-header">
+        <h2>6CODE FILL GAME CHALLENGE</h2>
+      </div>
+
+      <!-- Stats Bar -->
+      <div class="stats-bar">
+        <div class="stat"><span class="stat-label">Level</span><span class="stat-value" id="level">1</span></div>
+        <div class="stat"><span class="stat-label">Lives</span><span class="stat-value" id="lives">3</span></div>
+        <div class="stat"><span class="stat-label">Timer</span><span class="stat-value" id="timer">00:30</span></div>
+        <div class="stat"><span class="stat-label">Score</span><span class="stat-value" id="score">0</span></div>
+        <div class="stat"><span class="stat-label">Hints</span><span class="stat-value" id="hints">2</span></div>
+      </div>
+
+      <!-- Code Challenge Area -->
+      <div id="game-area" class="game-area">
+        <div class="code-block">
+          <pre id="code-display"></pre>
+        </div>
+
+        <div class="blanks-area" id="blanks-area"></div>
+
+        <p class="instruction">Choose Answer From Available Code Boxes</p>
+
+        <div class="options" id="options"></div>
+
+        <div class="action-buttons">
+          <button class="btn btn-outline" id="hint-btn" onclick="useHint()">Use Hint</button>
+          <button class="btn btn-primary" id="submit-btn" onclick="submitAnswer()">Submit</button>
+        </div>
+      </div>
+
+      <!-- Feedback Modals -->
+      <div id="correct-feedback" class="feedback-modal correct hidden">
+        <h3>✅ Correct!</h3>
+        <p id="correct-details"></p>
+        <button class="btn btn-primary" onclick="nextQuestion()">Next Question</button>
+      </div>
+
+      <div id="incorrect-feedback" class="feedback-modal incorrect hidden">
+        <h3>❌ Incorrect</h3>
+        <p id="incorrect-details"></p>
+        <button class="btn btn-primary" onclick="tryAgain()">Try Again</button>
+      </div>
+
+      <div id="hint-feedback" class="feedback-modal hint hidden">
+        <h3>💡 Hint</h3>
+        <p id="hint-text"></p>
+        <button class="btn btn-primary" onclick="closeHint()">Continue</button>
+      </div>
+
+      <div id="level-complete" class="feedback-modal level-up hidden">
+        <h3>🎉 Level Complete!</h3>
+        <p id="level-details"></p>
+        <button class="btn btn-primary" onclick="continueGame()">Continue</button>
+      </div>
+
+      <div id="game-over" class="feedback-modal game-over hidden">
+        <h3>🏁 Game Over</h3>
+        <p id="game-over-details"></p>
+        <button class="btn btn-primary" onclick="playAgain()">Play Again</button>
+        <button class="btn btn-outline" onclick="location.reload()">Main Menu</button>
+      </div>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>📧 registrations@tpc.training &nbsp;&nbsp; 📞 012 051 3483</p>
+    <p>📍 Fl 2, Landmark Building, 13 Umgazi Rd, Menlo Park, Pretoria</p>
+    <p>© 2026 SkillsTrack Training Centre</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
