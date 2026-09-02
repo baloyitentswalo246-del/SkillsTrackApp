@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillsTrackApp – 6CODE Fill Game</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="container-main">
+
+  <!-- ══════════════════════════════════════════
+       NAVBAR (Rectangle 470)  496 × 95 @ (22, 16)
+       Children positioned relative to navbar TL
+  ══════════════════════════════════════════ -->
+  <div class="navbar">
+
+    <!-- Logo (skillstrackapp 75): 118 × 72 @ (6, 15) from navbar -->
+    <img class="logo-main" src="designs/Images/skillstrackapp.png" alt="SkillsTrackApp" />
+
+    <!-- 6CODE GAME LEARNER DASHBOARD: 212 × 12 @ (157, 60) from navbar -->
+    <span class="dashboard-title">6CODE GAME LEARNER DASHBOARD</span>
+
+    <!-- Archive icon: 10 × 11 @ (312, 8) from navbar -->
+    <svg class="icon-archive" xmlns="http://www.w3.org/2000/svg" width="10" height="11"
+         viewBox="0 0 24 24" fill="none" stroke="#070707" stroke-width="2"
+         stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/>
+      <line x1="10" y1="12" x2="14" y2="12"/>
+    </svg>
+
+    <!-- Cookie Policy link: 69 × 11 @ (324, 10) from navbar -->
+    <a class="link-cookie" href="#">Cookie Policy</a>
+
+    <!-- Feather icon: 12 × 12 @ (372, 6) from navbar -->
+    <svg class="icon-feather-lnk" xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+         viewBox="0 0 24 24" fill="none" stroke="#1e1e1e" stroke-width="2"
+         stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/>
+      <line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/>
+    </svg>
+
+    <!-- Privacy link: 25 × 8 @ (384, 10) from navbar -->
+    <a class="link-privacy" href="#">Privacy</a>
+
+    <!-- Framer icon: 11 × 11 @ (409, 7) from navbar -->
+    <svg class="icon-framer-lnk" xmlns="http://www.w3.org/2000/svg" width="11" height="11"
+         viewBox="0 0 24 24" fill="none" stroke="#1e1e1e" stroke-width="2"
+         stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"/>
+      <path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z"/>
+      <path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z"/>
+      <path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z"/>
+      <path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"/>
+    </svg>
+
+    <!-- Terms & Conditions link: 66 × 12 @ (421, 5) from navbar -->
+    <a class="link-terms" href="#">Terms &amp; Conditions</a>
+
+    <!-- User icon: 32 × 31 @ (430, 31) from navbar -->
+    <svg class="icon-user" xmlns="http://www.w3.org/2000/svg" width="32" height="31"
+         viewBox="0 0 24 24" fill="none" stroke="#1e1e1e" stroke-width="2"
+         stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+      <circle cx="12" cy="7" r="4"/>
+    </svg>
+
+    <!-- Learner Badge (Rectangle 482): 85 × 20 @ (402, 62) from navbar -->
+    <div class="learner-badge">
+      <span class="learner-text">LEARNER</span>
+    </div>
+
+  </div><!-- /navbar -->
+
+  <div class="below-nav">
+
+
+  <!-- ══════════════════════════════════════════
+       BACK BUTTON  52 × 20 @ (463, 128)
+  ══════════════════════════════════════════ -->
+  <button class="back-btn" onclick="history.back()">Back</button>
+
+
+  <!-- ══════════════════════════════════════════
+       SIDEBAR (Rectangle 472)  124 × 461 @ (13, 177)
+       Nav rows positioned relative to sidebar TL
+  ══════════════════════════════════════════ -->
+  <aside class="sidebar">
+
+    <!-- Dashboard (Rect 474): 112 × 40 @ (6, 26) -->
+    <div class="nav-row nav-row-1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+           fill="none" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        <polyline points="9 22 9 12 15 12 15 22"/>
+      </svg>
+      <span>Dashboard</span>
+    </div>
+
+    <!-- My Tasks (Rect 479): 112 × 40 @ (7, 86) -->
+    <div class="nav-row nav-row-2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+           fill="none" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+        <polyline points="14 2 14 8 20 8"/>
+        <line x1="16" y1="13" x2="8" y2="13"/>
+        <line x1="16" y1="17" x2="8" y2="17"/>
+        <polyline points="10 9 9 9 8 9"/>
+      </svg>
+      <span>My Tasks</span>
+    </div>
+
+    <!-- Completed Work (Rect 475): 113 × 40 @ (6, 153) -->
+    <div class="nav-row nav-row-3">
+      <svg xmlns="http://www.w3.org/2000/svg" width="23" height="21" viewBox="0 0 24 24"
+           fill="none" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 11 12 14 22 4"/>
+        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+      </svg>
+      <span>Completed Work</span>
+    </div>
+
+    <!-- Outstanding Work (Rect 476): 111 × 40 @ (6, 218) -->
+    <div class="nav-row nav-row-4">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 24 24"
+           fill="none" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+      </svg>
+      <span>Outstanding Work</span>
+    </div>
+
+    <!-- Calculated Progress (Rect 477): 112 × 40 @ (4, 277) -->
+    <div class="nav-row nav-row-5">
+      <svg xmlns="http://www.w3.org/2000/svg" width="21" height="19" viewBox="0 0 24 24"
+           fill="none" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="20" x2="18" y2="10"/>
+        <line x1="12" y1="20" x2="12" y2="4"/>
+        <line x1="6" y1="20" x2="6" y2="14"/>
+      </svg>
+      <span>Calculated Progress</span>
+    </div>
+
+    <!-- Book Support (Rect 478): 112 × 40 @ (9, 338) -->
+    <div class="nav-row nav-row-6">
+      <svg xmlns="http://www.w3.org/2000/svg" width="19" height="16" viewBox="0 0 24 24"
+           fill="none" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+        <polyline points="17 21 17 13 7 13 7 21"/>
+        <polyline points="7 3 7 8 15 8"/>
+      </svg>
+      <span>Book Support</span>
+    </div>
+
+    <!-- Print Progress (Rect 480): 112 × 40 @ (6, 401) -->
+    <div class="nav-row nav-row-7">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+           fill="none" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="5 3 19 12 5 21 5 3"/>
+      </svg>
+      <span>Print Progress</span>
+    </div>
+
+  </aside><!-- /sidebar -->
+
+
+  <!-- ══════════════════════════════════════════
+       GAME LOGO (Logo 24)  51 × 40 @ (164, 189)
+  ══════════════════════════════════════════ -->
+  <img class="game-logo-24" src="designs/Images/skillstrackapp.png" alt="Game Logo" />
+
+
+  <!-- ══════════════════════════════════════════
+       GAME TITLE BAR (Rectangle 481)  223 × 22 @ (221, 187)
+  ══════════════════════════════════════════ -->
+  <div class="game-title-bar">
+    <span class="game-title-text">6CODE FILL GAME CHALLENGE</span>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       GAME AREA (Rectangle 473)  357 × 235 @ (151, 183)
+       Children are absolute relative to game-area TL
+  ══════════════════════════════════════════ -->
+  <div class="game-area-rect" id="game-area">
+
+    <!-- Plus icon: 13 × 12 @ (18, 31) from game area -->
+    <svg class="icon-plus" xmlns="http://www.w3.org/2000/svg" width="13" height="12"
+         viewBox="0 0 24 24" fill="none" stroke="#1e1e1e" stroke-width="2"
+         stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" y1="5" x2="12" y2="19"/>
+      <line x1="5" y1="12" x2="19" y2="12"/>
+    </svg>
+
+    <!-- ── Stat Labels (Inter 10px 400 #000) ── -->
+    <!-- Level:  25 × 10 @ (22, 51)  -->
+    <span class="stat-lbl lbl-level">Level</span>
+    <!-- Lives:  25 × 10 @ (89, 50)  -->
+    <span class="stat-lbl lbl-lives">Lives</span>
+    <!-- Timer:  28 × 10 @ (153, 50) -->
+    <span class="stat-lbl lbl-timer">Timer</span>
+    <!-- Score:  28 × 10 @ (226, 52) -->
+    <span class="stat-lbl lbl-score">Score</span>
+    <!-- Hints:  25 × 10 @ (296, 52) -->
+    <span class="stat-lbl lbl-hints">Hints</span>
+
+    <!-- ── Stat Badges — green 14ae5c, values updated by script ── -->
+    <!-- Level:  24 × 13 @ (50, 50)  -->
+    <span class="stat-badge badge-level" id="level">1</span>
+    <!-- Lives:  23 × 13 @ (116, 50) -->
+    <span class="stat-badge badge-lives" id="lives">3</span>
+    <!-- Timer:  36 × 13 @ (182, 50) -->
+    <span class="stat-badge badge-timer" id="timer">00:30</span>
+    <!-- Score:  30 × 13 @ (255, 51) -->
+    <span class="stat-badge badge-score" id="score">0</span>
+    <!-- Hints:  23 × 13 @ (323, 51) -->
+    <span class="stat-badge badge-hints" id="hints">2</span>
+
+    <!-- ── Code Snippet (Rectangle 485)  170 × 48 @ (38, 109) ── -->
+    <div class="code-snippet-rect">
+      <!-- Code text — 136 × 50 @ (12, 3) inside code-snippet-rect -->
+      <div id="code-display" class="code-text"></div>
+    </div>
+
+    <!-- ── Blank Rows (dynamically populated by script.js) @ (219, 109) ── -->
+    <div id="blanks-area"></div>
+
+    <!-- ── Instruction Text  206 × 10 @ (71, 163) ── -->
+    <span class="instruction-text">Choose Answer From Available Code Boxes</span>
+
+    <!-- ── Options (dynamically populated by script.js) @ (19, 180) ── -->
+    <div id="options"></div>
+
+    <!-- ── Action Buttons ── -->
+    <!-- Use Hint:  96 × 18 @ (60, 213) -->
+    <button class="action-btn btn-hint"   id="hint-btn"   onclick="useHint()">Use Hint</button>
+    <!-- Submit:    96 × 18 @ (174, 212) -->
+    <button class="action-btn btn-submit" id="submit-btn" onclick="submitAnswer()">Submit</button>
+
+  </div><!-- /game-area -->
+
+
+  <!-- ══════════════════════════════════════════
+       LOGOUT BUTTON  120 × 31 @ (212, 944)
+  ══════════════════════════════════════════ -->
+  <button class="logout-btn" onclick="location.reload()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+         fill="none" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+      <path d="M7 11V7a5 5 0 0 1 9.9-1"/>
+    </svg>
+    <span>Logout</span>
+  </button>
+
+
+  <!-- ══════════════════════════════════════════
+       BOTTOM PANEL (Rectangle 483)  362 × 484 @ (151, 428)
+       Feedback modals — all class="feedback-modal"
+  ══════════════════════════════════════════ -->
+  <div class="bottom-panel-rect">
+
+    <!-- Correct Card (Rect 484): 176 × 84 -->
+    <div class="feedback-modal card-correct hidden" id="correct-feedback">
+      <div class="result-status-badge badge-correct-rslt">Correct &#10003;</div>
+      <p class="modal-text" id="correct-details">Correct!</p>
+      <button class="modal-btn" onclick="nextQuestion()">next question</button>
+    </div>
+
+    <!-- Wrong Card (Rect 511): 176 × 84 -->
+    <div class="feedback-modal card-wrong hidden" id="incorrect-feedback">
+      <div class="result-status-badge badge-wrong-rslt">Wrong &#10007;</div>
+      <p class="modal-text" id="incorrect-details">Wrong answer!</p>
+      <button class="modal-btn" onclick="tryAgain()">try again</button>
+    </div>
+
+    <!-- Hint Card (Rect 512): 176 × 84 -->
+    <div class="feedback-modal card-hint hidden" id="hint-feedback">
+      <div class="result-status-badge badge-hint-rslt">Hint Used</div>
+      <p class="modal-text" id="hint-text"></p>
+      <button class="modal-btn" onclick="closeHint()">continue</button>
+    </div>
+
+    <!-- Level Up Card (Rect 513): 176 × 158 -->
+    <div class="feedback-modal card-level hidden" id="level-complete">
+      <div class="result-status-badge badge-level-rslt">Level Complete</div>
+      <p class="modal-text" id="level-details">Level Complete!</p>
+      <button class="modal-btn" onclick="continueGame()">continue</button>
+    </div>
+
+    <!-- Game Over Card (Rect 514): 176 × 158 -->
+    <div class="feedback-modal card-gameover hidden" id="game-over">
+      <div class="result-status-badge badge-gameover-rslt">Game Over</div>
+      <p class="modal-text" id="game-over-details">Game Over!</p>
+      <button class="modal-btn" onclick="playAgain()">Play Again</button>
+      <button class="modal-btn" onclick="location.reload()">Main Menu</button>
+    </div>
+
+  </div><!-- /bottom-panel -->
+
+
+  <!-- ══════════════════════════════════════════
+       FOOTER (Rectangle 471)  520 × 64 @ (10, 992)
+       Children positioned relative to footer TL
+  ══════════════════════════════════════════ -->
+  <div class="footer-rect">
+
+    <!-- Mail icon: 16 × 16 @ (8, 8) from footer -->
+    <svg class="footer-icon fi-mail" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+         viewBox="0 0 24 24" fill="none" stroke="#1e1e1e" stroke-width="2"
+         stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+      <polyline points="22,6 12,13 2,6"/>
+    </svg>
+
+    <!-- Phone icon: 16 × 16 @ (126, 8) from footer -->
+    <svg class="footer-icon fi-phone" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+         viewBox="0 0 24 24" fill="none" stroke="#1e1e1e" stroke-width="2"
+         stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12
+               19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0
+               .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1
+               2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+    </svg>
+
+    <!-- Map-pin icon: 15 × 14 @ (8, 28) from footer -->
+    <svg class="footer-icon fi-mappin" xmlns="http://www.w3.org/2000/svg" width="15" height="14"
+         viewBox="0 0 24 24" fill="none" stroke="#1e1e1e" stroke-width="2"
+         stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+      <circle cx="12" cy="10" r="3"/>
+    </svg>
+
+    <!-- Check-circle icon: 16 × 16 @ (7, 45) from footer -->
+    <svg class="footer-icon fi-check" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+         viewBox="0 0 24 24" fill="none" stroke="#1e1e1e" stroke-width="2"
+         stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+      <polyline points="22 4 12 14.01 9 11.01"/>
+    </svg>
+
+    <!-- Footer text block: 390 × 45 @ (35, 1) from footer -->
+    <div class="footer-text-block">
+      registrations@tpc.training &nbsp;&nbsp;&nbsp; 012 051 3483<br>
+      Fl 2, Landmark Building, 13 Umgazi Rd, Menlo Park, Pretoria<br>
+      &copy; 2026 SkillsTrack Training Centre
+    </div>
+
+    <!-- Footer logo (skillstrackapp 76): 62 × 37 @ (441, 16) from footer -->
+    <img class="footer-logo" src="designs/Images/skillstrackapp.png" alt="SkillsTrackApp" />
+
+  </div><!-- /footer -->
+
+  </div><!-- /below-nav -->
+
+</div><!-- /container-main -->
+
+<script src="script.js"></script>
+</body>
+</html>
