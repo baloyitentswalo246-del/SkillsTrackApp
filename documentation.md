@@ -26,10 +26,8 @@ The main Objectives are :
 
  - Firgma Board
  - Miro Board
- - Chrome
- - Github
  
-  Firebase Authentication
+ ## Firebase Authentication
 
 Authentication system for sign-in, when new user register
 
