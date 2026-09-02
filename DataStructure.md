@@ -1,12 +1,11 @@
+
 #Sign-in Learner
 
 Collection Name: Learners
 
-Document Parent Path:
-Learners
+Document Parent Path: Learners
 
-Document ID:
-{AuthenticatedUserID} // u8Kx92LmPqR5Az7Y
+Document ID: AuthenticatedUserID} // u8Kx92LmPqR5Az7Y
 
 Fields:
 
@@ -665,6 +664,56 @@ incorrectAnswers    Number
 datePlayed          Timestamp
 
 .....................................................................................
+
+Document Parent Path: Users
+
+Document ID: {UserID}
+
+field name          type
+----------------------------------------
+username            String
+level               Number
+score               Number
+lives               Number
+hints               String
+unlockedLevels      Number 
+...............................................................................
+
+Document Parent Path: Levels
+
+Document ID: {Level1}
+
+field name          type
+----------------------------------------
+title               String
+timelimit           Timestamp
+questions           String
+
+...........................................................................................
+
+Document Parent Path: questions
+
+Document ID: {question1}
+
+field name          type
+----------------------------------------
+codeTemplate        String
+answers             string
+options             String
+points              number
+explanation         string
+
+...................................................................................
+
+Document Parent Path: leaderboard
+
+Document ID: {UserID}
+
+field name          type
+----------------------------------------
+username            String  
+score               number
+
 
 
 

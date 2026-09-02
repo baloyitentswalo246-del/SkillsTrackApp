@@ -1,80 +1,149 @@
-## 1. Client Brief
-- SkillsTrack Training Centre requires a browser-based Learner Support Portal to bring learner goals, tasks, support bookings and progress information into one system. The portal will allow learners to register, sign in, manage their learning tasks, book support sessions, review progress, use learning resources and complete a short coding game.
-- The application will use JavaScript for application logic and Firebase Realtime Database for data storage. Authentication will be used to manage registered users and their authenticated state.
-## 2. Requirements
-**Functional requirements:**
--	Users must be able to register, sign in and sign out.
--	The dashboard must display task totals, completed work, outstanding work and calculated progress.
--	Learners must be able to create, view, update, complete and delete tasks.
--	Task deletion must require confirmation.
--	Learners must be able to submit a validated support-session booking.
--	Users must be able to search, filter or sort tasks or resources.
--	A non-sensitive preference must be stored using a cookie.
--	The application must provide a printable progress summary.
--	The application must include JavaScript timer-based animation and controlled multimedia.
--	The application must include an operable basic JavaScript game.
--	Firebase Realtime Database must be used for application data.
--	The project must use Git and GitHub for version control and collaboration.
-## 3. Research
-- Our research shows that JavaScript, Firebase, GitHub, Figma and Miro are suitable tools for developing the SkillsTrack Learner Support Portal. JavaScript will provide the application functionality, Firebase will provide authentication and data storage, Git and GitHub will support version control and teamwork, while Figma and Miro will support design and project planning. Security Rules will be used to help protect learner data.
-## 4. Meeting Minutes
-Date: 05 August 2026
-Project: SkillsTrack
+# SkillsTrackApp
+Learner support portal
+
+1. Project Overview
+
+The learner Support portal is a browser-based web application developed to support 
+learners with managing learning tasks, support bookings, learning resources and progress
+
+the application uses Javascript for application and firebase for database/ data storage
+
+2. Client Brief Summary
+ - 
+3. Project Objectives
+
+The main Objectives are :
+
+- Allow learners to register and sign-in
+- Manage learning tasks
+- View learning progress
+- Access learning resources
+- Store application data in firebase
+- play basic coding game
+- Use GitHub for Team collaboration
+
+4. Technologies Used
+
+ - Firgma Board
+ - Miro Board
  
-The team discussed the project requirements, features, design, and Firebase connection. Tasks were divided among team members for login, task management, booking, and the dashboard. The team agreed to use HTML, CSS, JavaScript, Firebase, and GitHub. Development and testing will continue in the next meeting.
-## 5. User Stories and Acceptance Criteria
-- **Registration**
-As a learner, I want to register for an account so that I can use the portal.
-Acceptance criteria: A learner can enter the required registration information and create an account successfully.
-- **Login**
-As a learner, I want to sign in so that I can access my personal portal.
-Acceptance criteria: Valid credentials allow access; invalid credentials display clear feedback.
-- **Create Task**
-As a learner, I want to create a task so that I can record learning work.
-Acceptance criteria: A task with the required information is saved and displayed in the task list.
-- **Update Task**
-As a learner, I want to update a task so that I can keep my information accurate.
-Acceptance criteria: The learner can edit a task and see the updated information.
-- **Delete Task**
-As a learner, I want to delete a task so that I can remove work I no longer need.
-Acceptance criteria: A confirmation is shown before the task is deleted.
-- **Track Progress**
-As a learner, I want to see my progress so that I know how much work I have completed.
-Acceptance criteria: The dashboard calculates and displays completed, outstanding and relevant progress information.
-## 6. Use Cases
-- **Login**
-1. Learner opens the login page.
-2. Learner enters email and password.
-3. System validates the input.
-4. Authentication checks the credentials.
-5. Successful login takes the learner to the dashboard; invalid details show feedback.
-- **Create Task**
-1. Learner opens the task manager.
-2. Learner enters task information.
-3. System validates the input.
-4. Task is saved to Firebase.
-5. The new task is displayed.
-- **Book Support**
-1. Learner opens support booking.
-2. Learner enters the topic, preferred date and notes.
-3. System validates the information.
-4. Booking is saved.
-5. A success or error response is displayed.
-- **Delete Task**
-1. Learner selects a task to delete.
-2. System displays a confirmation dialog.
-3. Learner confirms deletion.
-4. Task is removed from the database and interface.
-## 7. Wireframes
-- Wireframes will be created in Miro before coding. Planned screens include the Login page, Registration page, Dashboard, Task Manager and Support Booking page.
- Miro link: [https://miro.com/app/board/uXjVH0kFKk4=/?share_link_id=671242774097]
-## 8. UI Designs
-- The UI designs will show the visual appearance of the portal, including navigation, forms, buttons, cards, colours, typography and other interface elements.
-Figma link: [https://www.figma.com/design/sEPbrHEHrquXcC9agl3Lom/SkillTrack-learner-Support-Portal?node-id=0-1&p=f&t=Fb1qVJEX8Q6WV2ED-0]
-## 9. Test Plan
-The final system should allow learners to register, log in, manage tasks, book support sessions, view progress and play the game, while assessors can view learner information, bookings, progress and game results.
-## 10. Repository Links
--	GitHub Repository: [https://github.com/baloyitentswalo246-del/SkillsTrackApp]
--	GitHub Project Board: [https://github.com/users/baloyitentswalo246-del/projects/1/views/2]
--	Figma: [https://www.figma.com/design/sEPbrHEHrquXcC9agl3Lom/SkillTrack-learner-Support-Portal?node-id=0-1&p=f&t=Fb1qVJEX8Q6WV2ED-0]
-- Miro link: [https://miro.com/app/board/uXjVH0kFKk4=/?share_link_id=671242774097]
+ ## Firebase Authentication
+
+Authentication system for sign-in, when new user register
+
+1. install Firebase
+
+# Use modular
+
+# choose platform and firebase (React)
+
+# The auth components used throughout this guide are available from that registry, including sign-in-auth-screen, sign-up-auth-screen, email-link-auth-screen, oauth-screen, phone-auth-screen,google-sign-in-button
+
+# add the components you want to use
+
+# React apps without shadcn/ui, install
+
+2. Initialize FirebaseUI
+
+# Create a shared UI store with initializeUI, pass it to your framework integration.
+
+3. Include styles
+
+# Include the FirebaseUI styles(css)
+
+4. Set up sign-in methode
+
+# Email address and password
+
+    Enable Email/Password in the Firebase console
+    
+    Render EmailLinkAuthScreen in React
+
+# Email link authentication
+
+    Enable Email/Password in the Firebase console
+
+    Render EmailLinkAuthScreen in React
+
+    Complete sign-in with the current URL using the core helpers when needed
+
+# Phone number
+
+    Enable Phone in the Firebase console
+
+    Add your app domain to Authorized domains
+
+    Render PhoneAuthScreen in React, the generated phone-auth-screen
+
+5. Customization
+
+# Require a display name during sign-up
+
+6. Sign in
+
+# Render the auth screen you want and handle success in component callbacks(React) 
+
+7. Sign out
+
+# Use the standard Firebase Authentication sign-out API
+
+8. Google One Tap
+
+# Use the oneTapSignIn(...) behavior to enable Google One Tap
+
+9. Terms of service and privacy policy
+
+# Attach policy links through the platform provider configuration(React)
+
+10. Sign up new users
+
+# Create a new users to register with your app using their email address and a password
+
+# Validate the email address and password
+
+# CreateUserWithEmailAndPassword method
+
+11. Sign in existing users
+
+# Sign in using email address and password
+
+# SignInWithEmailAndPassword method
+
+12. Authentication state observer and get user data
+
+# Get information about the user in the observer
+
+# onAuthStateChanged method
+
+13. Update a user's profile
+
+# updateProfile method
+
+14. set user's email address
+
+15. verification email
+
+# send email verfication
+
+16.  set a user's password
+
+# update password
+
+# send Password reset email
+
+17. Password Authentication
+
+#  email addresses and passwords, 
+# Add firebase to javascript project
+
+18. create a password-based account
+
+# create a new account with password
+# sign in a user with email address and password
+# validating a password on the client
+
+19. Email Authentication
+
+# add firebase on javascript project
+# Enable email-link sign-in
+# send an authentication link to the user's email address.
