@@ -1,4 +1,27 @@
 // ============================================
+// FULL-SCREEN SCALE
+// Scales the 541 × 1058 design canvas to fill the viewport.
+// ============================================
+function scaleToFit() {
+  const container = document.querySelector('.container-main');
+  if (!container) return;
+  const designW = 541;
+  const designH = 1058;
+  // Scale based on width only so the container always fills the full screen width.
+  // If the scaled height exceeds the viewport the page scrolls vertically.
+  const scale = window.innerWidth / designW;
+  container.style.transform = `scale(${scale})`;
+  container.style.transformOrigin = 'top left';
+  container.style.left = '0';
+  container.style.top  = '0';
+  // Tell the body how tall the scaled canvas actually is so the
+  // browser knows when to show the vertical scrollbar.
+  document.body.style.height = `${designH * scale}px`;
+}
+window.addEventListener('resize', scaleToFit);
+document.addEventListener('DOMContentLoaded', scaleToFit);
+
+// ============================================
 // HARDCODED TEST DATA (no Firestore)
 // ============================================
 const questions = [
@@ -7,7 +30,7 @@ const questions = [
     code: 'const totalHours = tasks.___(\n  (___, t) => ___ + t.hours,\n  0\n);',
     blanks: 3,
     answers: ['reduce', 'acc', 'acc'],
-    options: ['reduce', 'map', 'sum', 'filter', 'acc', 'val'],
+    options: ['reduce', 'map', 'sum', 'filter', 'acc', 'acc'],
     hint: 'Blank 1 starts with: "r"',
   },
   {

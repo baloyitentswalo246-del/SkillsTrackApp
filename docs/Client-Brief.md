@@ -39,7 +39,7 @@ The system should allow assessors to:
  
 ## Data Storage
  
-The application will use Firebase to store and manage the required application data.
+The application will use Firebase"s Firestore to store and manage the required application data.
  
 Firebase Authentication will be used for user authentication, while Firebase Realtime Database will be used for application data.
  
