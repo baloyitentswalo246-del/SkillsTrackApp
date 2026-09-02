@@ -34,17 +34,23 @@ The purpose of the meeting was to discuss the project requirements, divide respo
 - Task Management
 - Reports
 - Game Results
- 
+- Miro and Figma
+- Trace Table
+- Pseudocode 
 ### Kamohelo
 - Firebase
 - Login and Registration
 - Firebase Authentication
- 
+- Miro and Figma
+- Trace Table
+- Pseudocode 
 ### Judith
 - Support Booking
 - Learner Dashboard
 - Assessor Dashboard
- 
+- Miro and Figma
+- Trace Table
+- Pseudocode 
 ## Decisions Made
  
 - The project will be called **SkillsTrack Learner Support Portal**.
@@ -61,6 +67,8 @@ The purpose of the meeting was to discuss the project requirements, divide respo
 - Kamohelo will work on Firebase, Login and Registration.
 - Judith will work on Support Booking and the dashboards.
 - All team members will contribute to testing and documentation.
+- We shared trace tables for debugging pseudocode
+- Planned data structure
  
 ## Next Meeting
  
