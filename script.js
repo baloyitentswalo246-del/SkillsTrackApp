@@ -1,6 +1,6 @@
 // ============================================
 // FULL-SCREEN SCALE
-// Scales the 541 × 1058 design canvas to fill the viewport.
+// Scales the 541 x 1058 design canvas to fill the viewport.
 // ============================================
 function scaleToFit() {
   const container = document.querySelector('.container-main');
@@ -13,7 +13,7 @@ function scaleToFit() {
   container.style.transform = `scale(${scale})`;
   container.style.transformOrigin = 'top left';
   container.style.left = '0';
-  container.style.top  = '0';
+  container.style.top = '0';
   // Tell the body how tall the scaled canvas actually is so the
   // browser knows when to show the vertical scrollbar.
   document.body.style.height = `${designH * scale}px`;
@@ -30,7 +30,7 @@ const questions = [
     code: 'const totalHours = tasks.___(\n  (___, t) => ___ + t.hours,\n  0\n);',
     blanks: 3,
     answers: ['reduce', 'acc', 'acc'],
-    options: ['reduce', 'map', 'sum', 'filter', 'acc', 'acc'],
+    options: ['reduce', 'map', 'sum', 'acc', 'acc'],
     hint: 'Blank 1 starts with: "r"',
   },
   {
@@ -38,7 +38,7 @@ const questions = [
     code: 'const names = users.___(\n  (user) => user.___\n);',
     blanks: 2,
     answers: ['map', 'name'],
-    options: ['map', 'filter', 'forEach', 'name', 'id', 'age'],
+    options: ['map', 'forEach', 'name', 'id', 'age'],
     hint: 'Blank 1 is an array method that transforms each element.',
   },
   {
@@ -46,7 +46,7 @@ const questions = [
     code: 'const adults = people.___(\n  (p) => p.age ___ 18\n);',
     blanks: 2,
     answers: ['filter', '>='],
-    options: ['filter', 'find', 'map', '>=', '>', '==='],
+    options: ['filter', 'find', '>=', '>', '==='],
     hint: 'Blank 1 returns a new array with elements that pass a test.',
   },
   {
@@ -54,7 +54,7 @@ const questions = [
     code: 'const result = arr.___(\n  (a, b) => a.___(b)\n);',
     blanks: 2,
     answers: ['reduce', 'concat'],
-    options: ['reduce', 'flat', 'join', 'concat', 'push', 'merge'],
+    options: ['reduce', 'join', 'concat', 'push', 'merge'],
     hint: 'Think about combining arrays into one.',
   },
   {
@@ -62,7 +62,7 @@ const questions = [
     code: 'async function getData() {\n  const res = await ___("/api/data");\n  const data = await res.___();\n  return data;\n}',
     blanks: 2,
     answers: ['fetch', 'json'],
-    options: ['fetch', 'get', 'axios', 'json', 'text', 'parse'],
+    options: ['fetch', 'axios', 'json', 'text', 'parse'],
     hint: 'The browser API for making HTTP requests.',
   },
   {
@@ -70,7 +70,7 @@ const questions = [
     code: 'const unique = [...new ___(arr)];\nconsole.___("Unique items:", unique);',
     blanks: 2,
     answers: ['Set', 'log'],
-    options: ['Set', 'Map', 'Array', 'log', 'warn', 'dir'],
+    options: ['Set', 'Map', 'log', 'warn', 'dir'],
     hint: 'This data structure only stores unique values.',
   },
   {
@@ -78,7 +78,7 @@ const questions = [
     code: 'class Animal {\n  ___(name) {\n    this.___ = name;\n  }\n}',
     blanks: 2,
     answers: ['constructor', 'name'],
-    options: ['constructor', 'init', 'create', 'name', 'type', 'self'],
+    options: ['constructor', 'create', 'name', 'type', 'self'],
     hint: 'The special method called when creating a new instance.',
   },
   {
@@ -115,6 +115,24 @@ window.addEventListener('DOMContentLoaded', () => {
   loadQuestion();
   startTimer();
 });
+
+function setBottomPanelResultMode(isActive) {
+  const panel = document.querySelector('.bottom-panel-rect');
+  if (!panel) return;
+  panel.classList.toggle('result-active', isActive);
+}
+
+function toggleSidebar() {
+  const sidebar = document.querySelector('.sidebar');
+  const toggleBtn = document.getElementById('sidebar-toggle');
+  const container = document.querySelector('.container-main');
+  if (!sidebar || !toggleBtn || !container) return;
+
+  const isCollapsed = sidebar.classList.toggle('is-collapsed');
+  toggleBtn.classList.toggle('is-collapsed', isCollapsed);
+  container.classList.toggle('sidebar-collapsed-layout', isCollapsed);
+  toggleBtn.setAttribute('aria-expanded', String(!isCollapsed));
+}
 
 function updateStats() {
   document.getElementById('level').textContent = state.level;
@@ -322,7 +340,7 @@ function useHint() {
 }
 
 function closeHint() {
-  document.getElementById('hint-feedback').classList.add('hidden');
+  hideAllFeedback();
 }
 
 // ============================================
@@ -353,6 +371,7 @@ function showLevelComplete(completedLevel) {
   const el = document.getElementById('level-complete');
   document.getElementById('level-details').textContent = details;
   el.classList.remove('hidden');
+  setBottomPanelResultMode(true);
 }
 
 function playAgain() {
@@ -379,6 +398,7 @@ function playAgain() {
 function hideAllFeedback() {
   document.querySelectorAll('.feedback-modal').forEach((el) => el.classList.add('hidden'));
   document.getElementById('game-area').classList.remove('hidden');
+  setBottomPanelResultMode(false);
 }
 
 function showFeedback(type, message) {
@@ -392,6 +412,7 @@ function showFeedback(type, message) {
     document.getElementById('game-area').classList.add('hidden');
     document.getElementById(map[type][0]).classList.remove('hidden');
     document.getElementById(map[type][1]).textContent = message;
+    setBottomPanelResultMode(true);
   }
 }
 
@@ -408,5 +429,6 @@ function showGameOver() {
 
   document.getElementById('game-over-details').textContent = details;
   document.getElementById('game-over').classList.remove('hidden');
+  setBottomPanelResultMode(true);
 }
 
