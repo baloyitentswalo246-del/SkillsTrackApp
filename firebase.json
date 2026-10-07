@@ -65,8 +65,8 @@
       "DataStructure.md",
       "documentation.md"
     ],
-    "rewrites": [
-      { "source": "/", "destination": "/src/index.html" }
+    "redirects": [
+      { "source": "/", "destination": "/src/index.html", "type": 302 }
     ]
   },
   "auth": {

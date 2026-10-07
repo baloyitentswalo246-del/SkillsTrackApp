@@ -27,7 +27,7 @@ form.addEventListener('submit', async function (event) {
         await setDoc(doc(db, "Assessors", credential.user.uid), { lastLogin: serverTimestamp() }, { merge: true });
 
         showMessage('Sign in successful!', 'success');
-        window.location.href = "assessorDashboard.html";
+        window.location.href = "AssessorDashboard.html";
     } catch (error) {
         console.error(error);
         showMessage(error.message || 'Sign in failed', 'error');
