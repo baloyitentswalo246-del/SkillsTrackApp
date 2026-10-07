@@ -4,17 +4,273 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Book Support - SkillsTrackApp</title>
-  <style>
-    body { font-family: Inter, Arial, sans-serif; margin: 0; padding: 32px; background: #f5fafb; color: #1e1e1e; }
-    .card { max-width: 680px; margin: 0 auto; padding: 24px; border: 1px solid #79aeb7; border-radius: 12px; background: #fff; }
-    a { color: #1a6fb5; text-decoration: none; font-weight: 600; }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css" />
 </head>
-<body>
-  <div class="card">
-    <h1>Book Support</h1>
-    <p>This page is linked from the sidebar button.</p>
-    <p><a href="Game.html">Back to Game Dashboard</a></p>
-  </div>
+<body class="book-support-page">
+
+<div class="frame">
+
+  <div class="navbar">
+    <div class="navbar-content">
+      <img class="logo-main" src="../designs/Images/skillstrackapp.png" alt="SkillsTrackApp" />
+
+      <div class="navbar-links">
+        <svg class="icon-archive" xmlns="http://www.w3.org/2000/svg" width="10" height="11"
+             viewBox="0 0 24 24" fill="none" stroke="#070707" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/>
+          <line x1="10" y1="12" x2="14" y2="12"/>
+        </svg>
+
+        <a class="link-cookie" href="#">Cookie Policy</a>
+
+        <svg class="icon-feather-lnk" xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+             viewBox="0 0 24 24" fill="none" stroke="#1e1e1e" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/>
+          <line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/>
+        </svg>
+
+        <a class="link-privacy" href="#">Privacy</a>
+
+        <svg class="icon-framer-lnk" xmlns="http://www.w3.org/2000/svg" width="11" height="11"
+             viewBox="0 0 24 24" fill="none" stroke="#1e1e1e" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"/>
+          <path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z"/>
+          <path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z"/>
+          <path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z"/>
+          <path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"/>
+        </svg>
+
+        <a class="link-terms" href="#">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </div><!-- /navbar -->
+
+  <div class="below-nav">
+
+    <button id="sidebar-toggle" class="sidebar-toggle is-collapsed" type="button" aria-label="Toggle sidebar" aria-expanded="false" onclick="toggleSidebar()">
+      <svg class="icon-open" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+      <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+
+    <aside class="sidebar is-collapsed">
+      <a class="nav-row" href="taskTotal.html">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <line x1="8" y1="8" x2="16" y2="8"/>
+          <line x1="8" y1="12" x2="16" y2="12"/>
+          <line x1="8" y1="16" x2="12" y2="16"/>
+        </svg>
+        <span>Task Total</span>
+      </a>
+      <a class="nav-row" href="completed-work.html">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="8" r="6"/>
+          <path d="M8.5 13.5 7 22l5-3 5 3-1.5-8.5"/>
+        </svg>
+        <span>Completed Tasks</span>
+      </a>
+      <a class="nav-row" href="outstanding-work.html">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+        </svg>
+        <span>Outstanding Work</span>
+      </a>
+      <a class="nav-row" href="calculated-progress.html">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="20" x2="12" y2="10"/>
+          <line x1="18" y1="20" x2="18" y2="4"/>
+          <line x1="6" y1="20" x2="6" y2="16"/>
+        </svg>
+        <span>Calculated Progress</span>
+      </a>
+      <a class="nav-row" href="book-support.html">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          <line x1="9" y1="7" x2="15" y2="7"/>
+        </svg>
+        <span>Book Support</span>
+      </a>
+      <a class="nav-row" href="print-progress.html">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 6 2 18 2 18 9"/>
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+          <rect x="6" y="14" width="12" height="8"/>
+        </svg>
+        <span>Print Progress</span>
+      </a>
+      <a class="nav-row" href="../Game.html">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1e1e1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <polygon points="10 8 16 12 10 16 10 8" fill="#1e1e1e" stroke="none"/>
+        </svg>
+        <span>Play Game</span>
+      </a>
+    </aside><!-- /sidebar -->
+
+    <div class="content-stack">
+
+      <div class="welcome-banner">
+        <h2>Welcome<br><span class="wb-highlight">SkillsTrackApp Learner Support Portal</span></h2>
+        <p>SkillsTrack Training Centre supports learners who attend short occupational programmes.</p>
+      </div>
+
+      <div class="task-breadcrumb-row task-breadcrumb-row-center">
+        <a class="task-breadcrumb" href="learnerDashboard.html">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+          Learner Dashboard
+        </a>
+      </div>
+
+      <h2 class="task-page-title">Book Support</h2>
+
+      <section class="task-panel" aria-label="Book a support session">
+
+        <div class="booking-user-row">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+          <span id="learnerName">Grace</span>
+        </div>
+
+        <div class="booking-field">
+          <label class="booking-field-label" for="assessorSelect">Choose Assessor</label>
+          <select class="select-pill" id="assessorSelect">
+            <option value="">Select an assessor</option>
+            <option value="mr-dube">Mr Dube</option>
+            <option value="ms-khumalo">Ms Khumalo</option>
+            <option value="mr-patel">Mr Patel</option>
+          </select>
+        </div>
+
+        <div class="booking-field">
+          <span class="booking-field-label">Pick a date</span>
+          <div class="chip-row" id="dateChips">
+            <button type="button" class="chip" data-value="Mon 24">Mon 24</button>
+            <button type="button" class="chip" data-value="Tue 25">Tue 25</button>
+            <button type="button" class="chip" data-value="Wed 26">Wed 26</button>
+          </div>
+        </div>
+
+        <div class="booking-field">
+          <span class="booking-field-label">Pick a Time Slot</span>
+          <div class="chip-row" id="timeChips">
+            <button type="button" class="chip" data-value="10:00">10:00</button>
+            <button type="button" class="chip" data-value="11:00">11:00</button>
+            <button type="button" class="chip" data-value="12:00">12:00</button>
+            <button type="button" class="chip" data-value="13:00">13:00</button>
+          </div>
+        </div>
+
+        <div class="booking-field">
+          <span class="booking-field-label">Session Mode</span>
+          <div class="chip-row" id="modeChips">
+            <button type="button" class="chip wide" data-value="Online">Online</button>
+            <button type="button" class="chip wide" data-value="On-Site">On-Site</button>
+          </div>
+        </div>
+
+        <div class="booking-field">
+          <label class="booking-field-label" for="sessionTypeFilter">Session Type</label>
+          <select class="select-pill" id="sessionTypeFilter">
+            <option value="">filter</option>
+            <option value="technical-support">Technical support</option>
+            <option value="academic-support">Academic Support</option>
+            <option value="career-coaching">Career Coaching</option>
+            <option value="portfolio-review">Portfolio Review</option>
+          </select>
+          <div class="chip-row" id="sessionTypeChips" style="margin-top: 10px;">
+            <button type="button" class="chip" data-value="Technical support">Technical support</button>
+            <button type="button" class="chip" data-value="Academic Support">Academic Support</button>
+            <button type="button" class="chip" data-value="Career Coaching">Career Coaching</button>
+            <button type="button" class="chip" data-value="Portfolio Review">Portfolio Review</button>
+          </div>
+        </div>
+
+        <div class="booking-field">
+          <label class="booking-field-label" for="bookingDescription">Description of your Bookings</label>
+          <textarea class="booking-textarea" id="bookingDescription" placeholder="Add any notes for your assessor..."></textarea>
+        </div>
+
+        <div class="booking-actions">
+          <button type="button" class="btn-confirm" id="confirmBtn">Confirm</button>
+          <button type="button" class="btn-cancel" id="cancelBtn">Cancel</button>
+        </div>
+
+        <p id="bookingMessage" class="form-message" role="status" aria-live="polite"></p>
+
+      </section>
+
+    </div><!-- /content-stack -->
+
+    <div class="footer-rect">
+      <svg class="footer-icon fi-mail" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+           viewBox="0 0 24 24" fill="none" stroke="#1e1e1e" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+        <polyline points="22,6 12,13 2,6"/>
+      </svg>
+
+      <svg class="footer-icon fi-phone" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+           viewBox="0 0 24 24" fill="none" stroke="#1e1e1e" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12
+                 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0
+                 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1
+                 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+      </svg>
+
+      <svg class="footer-icon fi-mappin" xmlns="http://www.w3.org/2000/svg" width="15" height="14"
+           viewBox="0 0 24 24" fill="none" stroke="#1e1e1e" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+        <circle cx="12" cy="10" r="3"/>
+      </svg>
+
+      <svg class="footer-icon fi-check" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+           viewBox="0 0 24 24" fill="none" stroke="#1e1e1e" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+        <polyline points="22 4 12 14.01 9 11.01"/>
+      </svg>
+
+      <div class="footer-text-block">
+        <span>registrations@tpc.training <span class="footer-phone">012 051 3483</span></span>
+        <span>Fl 2, Landmark Building, 13 Umgazi Rd, Menlo Park, Pretoria</span>
+        <span>&copy; 2026 SkillsTrack Training Centre</span>
+      </div>
+
+      <img class="footer-logo" src="../designs/Images/skillstrackapp.png" alt="SkillsTrackApp" />
+    </div><!-- /footer -->
+
+  </div><!-- /below-nav -->
+
+</div><!-- /frame -->
+
+<script src="book-support.js"></script>
 </body>
 </html>
