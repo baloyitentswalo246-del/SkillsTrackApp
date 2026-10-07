@@ -1,3 +1,7 @@
+import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+import { doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+import { auth, db } from "../firebase.config.js";
+
 const form = document.getElementById('loginForm');
 const message = document.getElementById('message');
 
@@ -10,7 +14,7 @@ function showMessage(text, type) {
     message.classList.add(type);
 }
 
-form.addEventListener('submit', function (event) {
+form.addEventListener('submit', async function (event) {
     event.preventDefault();
 
     if (!email.value.trim() || !password.value) {
@@ -18,7 +22,16 @@ form.addEventListener('submit', function (event) {
         return;
     }
 
-    console.log('Assessor sign-in attempt:', email.value.trim());
-    showMessage('Sign in successful!', 'success');
+    try {
+        const credential = await signInWithEmailAndPassword(auth, email.value.trim(), password.value);
+        await setDoc(doc(db, "Assessors", credential.user.uid), { lastLogin: serverTimestamp() }, { merge: true });
+
+        showMessage('Sign in successful!', 'success');
+        window.location.href = "assessorDashboard.html";
+    } catch (error) {
+        console.error(error);
+        showMessage(error.message || 'Sign in failed', 'error');
+    }
 });
+
 
