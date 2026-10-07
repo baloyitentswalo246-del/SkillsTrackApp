@@ -60,7 +60,7 @@ form.addEventListener("submit", async function (event) {
 
     await setDoc(doc(db, "Learners", credential.user.uid), {
       name: firstName,
-      surname,
+      surname: surname,
       email,
       registrationDate: serverTimestamp(),
       lastLogin: serverTimestamp(),
