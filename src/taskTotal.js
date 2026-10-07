@@ -1,35 +1,35 @@
 const subjects = [
-    { name: 'JavaScript', complete: 'YES' },
-    { name: 'HTML', complete: 'YES' },
-    { name: 'CSS', complete: 'YES' },
+    { name: 'JavaScript', score: 70, total: 100 },
+    { name: 'HTML', score: 90, total: 100 },
+    { name: 'CSS', score: 100, total: 100 },
 ];
 
-const completedRows = document.getElementById('completedRows');
-const completedSearch = document.getElementById('completedSearch');
+const taskRows = document.getElementById('taskRows');
+const taskSearch = document.getElementById('taskSearch');
 const refreshBtn = document.getElementById('refreshBtn');
 
 function renderRows() {
-    completedRows.innerHTML = subjects.map((subject) => `
+    taskRows.innerHTML = subjects.map((subject) => `
         <div class="task-row" data-subject="${subject.name.toLowerCase()}">
             <span class="tag-pill">Subject</span>
             <span class="task-subject-name">${subject.name}</span>
-            <span class="tag-pill total">Complete</span>
-            <span class="task-score">${subject.complete}</span>
+            <span class="tag-pill total">Total</span>
+            <span class="task-score">${subject.score}/${subject.total}</span>
         </div>
     `).join('');
 }
 
-completedSearch.addEventListener('input', function () {
-    const query = completedSearch.value.trim().toLowerCase();
-    completedRows.querySelectorAll('.task-row').forEach((row) => {
+taskSearch.addEventListener('input', function () {
+    const query = taskSearch.value.trim().toLowerCase();
+    taskRows.querySelectorAll('.task-row').forEach((row) => {
         row.classList.toggle('hidden', query !== '' && !row.dataset.subject.includes(query));
     });
 });
 
 refreshBtn.addEventListener('click', function () {
     renderRows();
-    completedSearch.value = '';
-    console.log('Completed work refreshed:', subjects);
+    taskSearch.value = '';
+    console.log('Task totals refreshed:', subjects);
 });
 
 renderRows();
@@ -43,3 +43,4 @@ function toggleSidebar() {
     toggleBtn.classList.toggle('is-collapsed', isCollapsed);
     toggleBtn.setAttribute('aria-expanded', String(!isCollapsed));
 }
+

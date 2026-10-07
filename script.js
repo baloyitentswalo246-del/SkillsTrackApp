@@ -1,27 +1,4 @@
 // ============================================
-// FULL-SCREEN SCALE
-// Scales the 541 x 1058 design canvas to fill the viewport.
-// ============================================
-function scaleToFit() {
-  const container = document.querySelector('.container-main');
-  if (!container) return;
-  const designW = 541;
-  const designH = 1058;
-  // Scale based on width only so the container always fills the full screen width.
-  // If the scaled height exceeds the viewport the page scrolls vertically.
-  const scale = window.innerWidth / designW;
-  container.style.transform = `scale(${scale})`;
-  container.style.transformOrigin = 'top left';
-  container.style.left = '0';
-  container.style.top = '0';
-  // Tell the body how tall the scaled canvas actually is so the
-  // browser knows when to show the vertical scrollbar.
-  document.body.style.height = `${designH * scale}px`;
-}
-window.addEventListener('resize', scaleToFit);
-document.addEventListener('DOMContentLoaded', scaleToFit);
-
-// ============================================
 // HARDCODED TEST DATA (no Firestore)
 // ============================================
 const questions = [
@@ -112,6 +89,8 @@ let state = {
 // INIT
 // ============================================
 window.addEventListener('DOMContentLoaded', () => {
+  // Game logic only applies to pages that render the game board (e.g. Game.html).
+  if (!document.querySelector('.bottom-panel-rect')) return;
   loadQuestion();
   startTimer();
 });
@@ -125,12 +104,10 @@ function setBottomPanelResultMode(isActive) {
 function toggleSidebar() {
   const sidebar = document.querySelector('.sidebar');
   const toggleBtn = document.getElementById('sidebar-toggle');
-  const container = document.querySelector('.container-main');
-  if (!sidebar || !toggleBtn || !container) return;
+  if (!sidebar || !toggleBtn) return;
 
   const isCollapsed = sidebar.classList.toggle('is-collapsed');
   toggleBtn.classList.toggle('is-collapsed', isCollapsed);
-  container.classList.toggle('sidebar-collapsed-layout', isCollapsed);
   toggleBtn.setAttribute('aria-expanded', String(!isCollapsed));
 }
 
