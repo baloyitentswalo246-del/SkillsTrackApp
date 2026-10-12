@@ -159,56 +159,67 @@
 
         <div class="booking-field">
           <label class="booking-field-label" for="assessorSelect">Choose Assessor</label>
-          <select class="select-pill" id="assessorSelect">
-            <option value="">Select an assessor</option>
-            <option value="mr-dube">Mr Dube</option>
-            <option value="ms-khumalo">Ms Khumalo</option>
-            <option value="mr-patel">Mr Patel</option>
-          </select>
+          <select id="assessorSelect">
+    <option value="">
+        Select an assessor
+    </option>
+</select>
         </div>
 
         <div class="booking-field">
-          <span class="booking-field-label">Pick a date</span>
-          <div class="chip-row" id="dateChips">
-            <button type="button" class="chip" data-value="Mon 24">Mon 24</button>
-            <button type="button" class="chip" data-value="Tue 25">Tue 25</button>
-            <button type="button" class="chip" data-value="Wed 26">Wed 26</button>
-          </div>
+         <div class="booking-field">
+
+  <label
+    class="booking-field-label"
+    for="sessionDate"> Pick a Date
+</label>
+
+  <input type="date" id="sessionDate" class="select-pill"></div>
         </div>
 
         <div class="booking-field">
-          <span class="booking-field-label">Pick a Time Slot</span>
-          <div class="chip-row" id="timeChips">
-            <button type="button" class="chip" data-value="10:00">10:00</button>
-            <button type="button" class="chip" data-value="11:00">11:00</button>
-            <button type="button" class="chip" data-value="12:00">12:00</button>
-            <button type="button" class="chip" data-value="13:00">13:00</button>
-          </div>
+          <div class="booking-field">
+
+  <label
+    class="booking-field-label"
+    for="sessionTime">Session Time</label>
+
+  <input
+    type="time"
+    id="sessionTime"
+    class="select-pill">
+
+</div>
         </div>
 
-        <div class="booking-field">
-          <span class="booking-field-label">Session Mode</span>
-          <div class="chip-row" id="modeChips">
-            <button type="button" class="chip wide" data-value="Online">Online</button>
-            <button type="button" class="chip wide" data-value="On-Site">On-Site</button>
-          </div>
-        </div>
+       <div class="booking-field">
+    <span class="booking-field-label">Session Mode</span>
+
+    <div class="chip-row" id="modeChips">
+        <button type="button" class="chip wide" data-value="Online">
+            Online
+        </button>
+
+        <button type="button" class="chip wide" data-value="On-Site">
+            On-Site
+        </button>
+    </div>
+
+    <p id="modeSelectionMessage" class="mode-selection-message">
+        No mode selected yet.
+    </p>
+</div>
 
         <div class="booking-field">
-          <label class="booking-field-label" for="sessionTypeFilter">Session Type</label>
-          <select class="select-pill" id="sessionTypeFilter">
+          <label class="booking-field-label" for="sessionType">Session Type</label>
+          <select class="select-pill" id="sessionType">
             <option value="">filter</option>
             <option value="technical-support">Technical support</option>
             <option value="academic-support">Academic Support</option>
             <option value="career-coaching">Career Coaching</option>
             <option value="portfolio-review">Portfolio Review</option>
           </select>
-          <div class="chip-row" id="sessionTypeChips" style="margin-top: 10px;">
-            <button type="button" class="chip" data-value="Technical support">Technical support</button>
-            <button type="button" class="chip" data-value="Academic Support">Academic Support</button>
-            <button type="button" class="chip" data-value="Career Coaching">Career Coaching</button>
-            <button type="button" class="chip" data-value="Portfolio Review">Portfolio Review</button>
-          </div>
+          
         </div>
 
         <div class="booking-field">
@@ -225,7 +236,30 @@
 
       </section>
 
-    </div><!-- /content-stack -->
+      <h2 class="task-page-title">My Bookings</h2>
+
+      <div class="support-table-wrapper">
+
+        <table class="support-table">
+
+            <thead>
+                <tr>
+                    <th>Assessor</th>
+                    <th>Session Type</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="myBookingsTableBody">
+
+            </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
 
     <div class="footer-rect">
       <svg class="footer-icon fi-mail" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -271,6 +305,6 @@
 
 </div><!-- /frame -->
 
-<script src="book-support.js"></script>
+<script type="module" src="book-support.js"></script>
 </body>
 </html>

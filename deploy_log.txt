@@ -1,0 +1,63 @@
+﻿[2026-10-12T08:55:30.369Z] ----------------------------------------------------------------------
+[2026-10-12T08:55:30.377Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Kamono\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only firestore:rules --debug
+[2026-10-12T08:55:30.378Z] CLI Version:   15.32.1
+[2026-10-12T08:55:30.378Z] Platform:      win32
+[2026-10-12T08:55:30.379Z] Node Version:  v22.17.0
+[2026-10-12T08:55:30.379Z] Detected Agent: github_copilot_vscode_agent
+[2026-10-12T08:55:30.380Z] Time:          Mon Oct 12 2026 01:55:30 GMT-0700 (Pacific Daylight Time)
+[2026-10-12T08:55:30.381Z] ----------------------------------------------------------------------
+
+[2026-10-12T08:55:37.509Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[2026-10-12T08:55:37.511Z] > authorizing via signed-in user (baloyitentswalo246@gmail.com)
+[2026-10-12T08:55:37.512Z] [iam] checking project skillstrackapp-e0a34 for permissions ["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]
+[2026-10-12T08:55:37.544Z] Checked if tokens are valid: true, expires at: 1791797969347
+[2026-10-12T08:55:37.544Z] Checked if tokens are valid: true, expires at: 1791797969347
+[2026-10-12T08:55:37.547Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/skillstrackapp-e0a34:testIamPermissions [none]
+[2026-10-12T08:55:37.547Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/skillstrackapp-e0a34:testIamPermissions  x-goog-user-project=skillstrackapp-e0a34
+[2026-10-12T08:55:37.547Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/skillstrackapp-e0a34:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]}
+[2026-10-12T08:55:39.368Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/skillstrackapp-e0a34:testIamPermissions 200
+[2026-10-12T08:55:39.369Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/skillstrackapp-e0a34:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]}
+
+=== Deploying to 'skillstrackapp-e0a34'...
+
+i  deploying firestore 
+i  firestore: ensuring required API firestore.googleapis.com is enabled... 
+i  firestore: ensuring required API firestore.googleapis.com is enabled... 
+[2026-10-12T08:55:39.383Z] Checked if tokens are valid: true, expires at: 1791797969347
+[2026-10-12T08:55:39.383Z] Checked if tokens are valid: true, expires at: 1791797969347
+[2026-10-12T08:55:39.383Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/skillstrackapp-e0a34/databases/(default) [none]
+[2026-10-12T08:55:39.804Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/skillstrackapp-e0a34/databases/(default) 200
+[2026-10-12T08:55:39.805Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/skillstrackapp-e0a34/databases/(default) {"name":"projects/skillstrackapp-e0a34/databases/(default)","uid":"53fce344-608a-4956-998c-7d2cfb77087d","createTime":"2026-10-07T18:07:23.717368Z","updateTime":"2026-10-07T18:07:23.717368Z","locationId":"africa-south1","type":"FIRESTORE_NATIVE","concurrencyMode":"PESSIMISTIC","versionRetentionPeriod":"3600s","earliestVersionTime":"2026-10-12T07:55:39.523606Z","appEngineIntegrationMode":"DISABLED","pointInTimeRecoveryEnablement":"POINT_IN_TIME_RECOVERY_DISABLED","deleteProtectionState":"DELETE_PROTECTION_DISABLED","databaseEdition":"STANDARD","freeTier":true,"realtimeUpdatesMode":"REALTIME_UPDATES_MODE_ENABLED","etag":"IKzp4+WNtJcDMP7M25vAqJcD"}
+i  firestore: reading indexes from firestore.indexes.json... 
+i  cloud.firestore: checking firestore.rules for compilation errors... 
+[2026-10-12T08:55:39.811Z] Checked if tokens are valid: true, expires at: 1791797969347
+[2026-10-12T08:55:39.812Z] Checked if tokens are valid: true, expires at: 1791797969347
+[2026-10-12T08:55:39.812Z] >>> [apiv2][query] POST https://firebaserules.googleapis.com/v1/projects/skillstrackapp-e0a34:test [none]
+[2026-10-12T08:55:39.812Z] >>> [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/skillstrackapp-e0a34:test [omitted]
+[2026-10-12T08:55:40.833Z] <<< [apiv2][status] POST https://firebaserules.googleapis.com/v1/projects/skillstrackapp-e0a34:test 200
+[2026-10-12T08:55:40.833Z] <<< [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/skillstrackapp-e0a34:test {}
++  cloud.firestore: rules file firestore.rules compiled successfully 
+[2026-10-12T08:55:40.837Z] Checked if tokens are valid: true, expires at: 1791797969347
+[2026-10-12T08:55:40.837Z] Checked if tokens are valid: true, expires at: 1791797969347
+[2026-10-12T08:55:40.838Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/skillstrackapp-e0a34/releases pageSize=10&pageToken=
+[2026-10-12T08:55:41.635Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/skillstrackapp-e0a34/releases 200
+[2026-10-12T08:55:41.636Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/skillstrackapp-e0a34/releases {"releases":[{"name":"projects/skillstrackapp-e0a34/releases/cloud.firestore","rulesetName":"projects/skillstrackapp-e0a34/rulesets/3c84960c-95b5-46ee-a45e-b8c6ec4e924a","createTime":"2026-10-07T18:09:19.032387Z","updateTime":"2026-10-12T08:54:21.717850Z"}]}
+[2026-10-12T08:55:41.637Z] Checked if tokens are valid: true, expires at: 1791797969347
+[2026-10-12T08:55:41.637Z] Checked if tokens are valid: true, expires at: 1791797969347
+[2026-10-12T08:55:41.638Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/skillstrackapp-e0a34/rulesets/3c84960c-95b5-46ee-a45e-b8c6ec4e924a [none]
+[2026-10-12T08:55:42.463Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/skillstrackapp-e0a34/rulesets/3c84960c-95b5-46ee-a45e-b8c6ec4e924a 200
+[2026-10-12T08:55:42.463Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/skillstrackapp-e0a34/rulesets/3c84960c-95b5-46ee-a45e-b8c6ec4e924a [omitted]
+i  firestore: latest version of firestore.rules already up to date, skipping upload... 
+[2026-10-12T08:55:42.510Z] [rules] releasing cloud.firestore with ruleset projects/skillstrackapp-e0a34/rulesets/3c84960c-95b5-46ee-a45e-b8c6ec4e924a
+[2026-10-12T08:55:42.511Z] Checked if tokens are valid: true, expires at: 1791797969347
+[2026-10-12T08:55:42.512Z] Checked if tokens are valid: true, expires at: 1791797969347
+[2026-10-12T08:55:42.512Z] >>> [apiv2][query] PATCH https://firebaserules.googleapis.com/v1/projects/skillstrackapp-e0a34/releases/cloud.firestore [none]
+[2026-10-12T08:55:42.513Z] >>> [apiv2][body] PATCH https://firebaserules.googleapis.com/v1/projects/skillstrackapp-e0a34/releases/cloud.firestore {"release":{"name":"projects/skillstrackapp-e0a34/releases/cloud.firestore","rulesetName":"projects/skillstrackapp-e0a34/rulesets/3c84960c-95b5-46ee-a45e-b8c6ec4e924a"}}
+[2026-10-12T08:55:43.515Z] <<< [apiv2][status] PATCH https://firebaserules.googleapis.com/v1/projects/skillstrackapp-e0a34/releases/cloud.firestore 200
+[2026-10-12T08:55:43.516Z] <<< [apiv2][body] PATCH https://firebaserules.googleapis.com/v1/projects/skillstrackapp-e0a34/releases/cloud.firestore {"name":"projects/skillstrackapp-e0a34/releases/cloud.firestore","rulesetName":"projects/skillstrackapp-e0a34/rulesets/3c84960c-95b5-46ee-a45e-b8c6ec4e924a","createTime":"2026-10-07T18:09:19.032387Z","updateTime":"2026-10-12T08:55:43.087253Z"}
+[2026-10-12T08:55:43.516Z] [rules] updated release projects/skillstrackapp-e0a34/releases/cloud.firestore
++  firestore: released rules firestore.rules to cloud.firestore 
+
++  Deploy complete! 
+
+Project Console: https://console.firebase.google.com/project/skillstrackapp-e0a34/overview

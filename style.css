@@ -1240,3 +1240,190 @@ body.outstanding-work-page .sidebar {
   flex: 0 0 auto;
   stroke: #ffffff;
 }
+
+.assessor-dashboard {
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+.dashboard-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.dashboard-title h2 {
+    font-family: "Baloo 2", sans-serif;
+    font-size: 24px;
+    color: #34495e;
+    margin: 0;
+}
+
+.support-card {
+    background: #d9eef4;
+    border: 1px solid #b7d5de;
+    border-radius: 18px;
+    padding: 22px;
+    margin-bottom: 25px;
+}
+
+.support-details {
+    margin-bottom: 20px;
+}
+
+.detail-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 8px;
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+}
+
+.label {
+    min-width: 140px;
+    font-weight: 700;
+    color: #324652;
+}
+
+.mode-online {
+    color: #008a3e;
+    font-weight: 700;
+}
+
+.detail-message {
+    align-items: flex-start;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btn-approve,
+.btn-pending,
+.btn-reject {
+    border: none;
+    padding: 10px 22px;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: "Nunito", sans-serif;
+}
+
+.btn-approve {
+    background: #32b44a;
+}
+
+.btn-pending {
+    background: #f5a623;
+}
+
+.btn-reject {
+    background: #e53935;
+}
+
+.assessor-section {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}
+
+.assessor-profile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #3b4f5b;
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.support-table-wrapper {
+    background: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid #d5dce1;
+}
+
+.support-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #fff;
+    border: 1px solid #bccfd6;
+    border-radius: 14px;
+    overflow: hidden;
+    font-family: "Nunito", sans-serif;
+}
+
+.support-table th {
+    background: #edf5f7;
+    color: #425462;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 10px 8px;
+    border-bottom: 1px solid #cad8dd;
+}
+
+.support-table td {
+    padding: 10px 8px;
+    font-size: 12px;
+    border-bottom: 1px solid #e5ecef;
+}
+
+.support-table tr:last-child td {
+    border-bottom: none;
+}
+.status-approved,
+.status-pending,
+.status-rejected {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.status-approved {
+    background: #7ddf8c;
+}
+
+.status-pending {
+    background: #f5a623;
+}
+
+.status-rejected {
+    background: #e5534b;
+}
+
+.btn-view {
+    border: none;
+    background: #8fd5e5;
+    color: white;
+    padding: 4px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 700;
+}
+.mode-selection-message {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #64748b;
+}
+
+.chip.selected {
+    background: #2563eb;
+    color: #fff;
+    border-color: #2563eb;
+}
+
+.mode-online {
+    color: #16a34a;
+}
+
+.mode-onsite {
+    color: #ea580c;
+}
