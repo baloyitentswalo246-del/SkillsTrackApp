@@ -2619,9 +2619,9 @@ body::after {
 /* Gentle logo-coloured border glow on hover */
 .dash-pill {
     transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        border-color 0.25s ease;
+        transform 1.25s ease,
+        box-shadow 1.25s ease,
+        border-color 1.25s ease;
 }
 
 .dash-pill:hover {
