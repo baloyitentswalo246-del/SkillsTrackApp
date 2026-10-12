@@ -150,6 +150,115 @@
       <h2 class="task-page-title">Upload Learner Tasks</h2>
 
       
+<div class="upload-task-card">
+
+    <div class="upload-task-header">
+        <button type="button" class="task-back-btn"
+                onclick="history.back()">
+            &larr; Back
+        </button>
+
+        <h3>UPLOAD LEARNER TASKS</h3>
+    </div>
+
+    <form class="upload-task-form" id="uploadTaskForm">
+
+<div class="task-form-group">
+    <label for="learnerSelect">Select Learner</label>
+
+    <div class="input-with-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="8" r="4"></circle>
+            <path d="M4 21v-2a8 8 0 0 1 16 0v2"></path>
+        </svg>
+
+        <select id="learnerSelect" name="learner" required>
+            <option value="" selected disabled>
+                Loading learners...
+            </option>
+        </select>
+    </div>
+
+    <div class="learner-shortcuts">
+        <button type="button" id="allLearnersBtn"
+                data-learner="all">
+            ALL
+        </button>
+    </div>
+</div>
+
+        <!-- Task title -->
+        <div class="task-form-group">
+            <label for="taskTitle">Tasks Title</label>
+
+            <div class="input-with-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6 2h9l5 5v15H6z"></path>
+                    <path d="M15 2v5h5M9 12h8M9 16h8"></path>
+                </svg>
+
+                <input
+                    type="text"
+                    id="taskTitle"
+                    name="taskTitle"
+                    placeholder="Enter task title"
+                    required
+                >
+            </div>
+        </div>
+
+        <!-- Task description -->
+        <div class="task-form-group">
+            <label for="taskDescription">Task Description</label>
+
+            <div class="input-with-icon textarea-wrapper">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m14 6 4 4M4 20l4-.8L20 7a2.8 2.8 0 0 0-4-4L4 15z"></path>
+                </svg>
+
+                <textarea
+                    id="taskDescription"
+                    name="taskDescription"
+                    placeholder="Enter task description"
+                    required
+                ></textarea>
+            </div>
+        </div>
+
+        <!-- Due date -->
+        <div class="task-form-group">
+            <label for="dueDate">Due Date</label>
+
+            <div class="input-with-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="3" y="5" width="18" height="16" rx="2"></rect>
+                    <path d="M16 3v4M8 3v4M3 10h18"></path>
+                </svg>
+
+                <input
+                    type="date"
+                    id="dueDate"
+                    name="dueDate"
+                    required
+                >
+            </div>
+        </div>
+   <p id="taskUploadMessage" class="task-upload-message" role="status" aria-live="polite"></p>
+
+        <!-- Form actions -->
+        <div class="task-form-actions">
+            <button type="reset" class="task-cancel-btn">
+                Cancel
+            </button>
+
+            <button type="submit" class="task-upload-btn">
+                Upload
+            </button>
+        </div>
+
+    </form>
+</div>
+
       
 
     </div><!-- /content-stack -->
@@ -192,12 +301,11 @@
       </div>
 
       <img class="footer-logo" src="../designs/Images/skillstrackapp.png" alt="SkillsTrackApp" />
-    </div><!-- /footer -->
+    </div>
 
-  </div><!-- /below-nav -->
+  </div>
 
-</div><!-- /frame -->
-
-<script src="assessor-upload-learner-tasks.js"></script>
+</div>
+<script type="module" src="assessor-upload-learner-tasks.js"></script>
 </body>
 </html>

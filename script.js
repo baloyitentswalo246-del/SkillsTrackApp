@@ -1,73 +1,181 @@
-// ============================================
-// HARDCODED TEST DATA (no Firestore)
-// ============================================
-const questions = [
-  {
-    level: 1,
-    code: 'const totalHours = tasks.___(\n  (___, t) => ___ + t.hours,\n  0\n);',
-    blanks: 3,
-    answers: ['reduce', 'acc', 'acc'],
-    options: ['reduce', 'map', 'sum', 'acc', 'acc'],
-    hint: 'Blank 1 starts with: "r"',
-  },
-  {
-    level: 1,
-    code: 'const names = users.___(\n  (user) => user.___\n);',
-    blanks: 2,
-    answers: ['map', 'name'],
-    options: ['map', 'forEach', 'name', 'id', 'age'],
-    hint: 'Blank 1 is an array method that transforms each element.',
-  },
-  {
-    level: 2,
-    code: 'const adults = people.___(\n  (p) => p.age ___ 18\n);',
-    blanks: 2,
-    answers: ['filter', '>='],
-    options: ['filter', 'find', '>=', '>', '==='],
-    hint: 'Blank 1 returns a new array with elements that pass a test.',
-  },
-  {
-    level: 2,
-    code: 'const result = arr.___(\n  (a, b) => a.___(b)\n);',
-    blanks: 2,
-    answers: ['reduce', 'concat'],
-    options: ['reduce', 'join', 'concat', 'push', 'merge'],
-    hint: 'Think about combining arrays into one.',
-  },
-  {
-    level: 3,
-    code: 'async function getData() {\n  const res = await ___("/api/data");\n  const data = await res.___();\n  return data;\n}',
-    blanks: 2,
-    answers: ['fetch', 'json'],
-    options: ['fetch', 'axios', 'json', 'text', 'parse'],
-    hint: 'The browser API for making HTTP requests.',
-  },
-  {
-    level: 3,
-    code: 'const unique = [...new ___(arr)];\nconsole.___("Unique items:", unique);',
-    blanks: 2,
-    answers: ['Set', 'log'],
-    options: ['Set', 'Map', 'log', 'warn', 'dir'],
-    hint: 'This data structure only stores unique values.',
-  },
-  {
-    level: 4,
-    code: 'class Animal {\n  ___(name) {\n    this.___ = name;\n  }\n}',
-    blanks: 2,
-    answers: ['constructor', 'name'],
-    options: ['constructor', 'create', 'name', 'type', 'self'],
-    hint: 'The special method called when creating a new instance.',
-  },
-  {
-    level: 4,
-    code: 'const [first, ...___] = items;\nconst obj = { ...defaults, ...___};',
-    blanks: 2,
-    answers: ['rest', 'overrides'],
-    options: ['rest', 'remaining', 'others', 'overrides', 'config', 'props'],
-    hint: 'The spread/rest operator collects remaining elements.',
-  },
-];
+import {
+  collection,
+  getDocs,
+  addDoc,
+  query,
+  where,
+  orderBy,
+  doc,
+  updateDoc,
+  increment,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 
+import { auth, db } from "../firebase.config.js";
+
+let questions = [];
+
+async function seedQuestionsIfEmpty() {
+  const snapshot = await getDocs(
+    collection(db, "Questions")
+  );
+
+  if (!snapshot.empty) {
+    return;
+  }
+
+  const starterQuestions = [
+    {
+      level: 1,
+      code: `const totalHours = tasks.___(
+  (___, t) => ___ + t.hours,
+  0
+);`,
+      blanks: 3,
+      answers: ["reduce", "acc", "acc"],
+      options: ["reduce", "map", "sum", "acc"],
+      hint: "Blank 1 starts with: r",
+      active: true,
+      order: 1
+    },
+    {
+      level: 1,
+      code: `const names = users.___(
+  (user) => user.___
+);`,
+      blanks: 2,
+      answers: ["map", "name"],
+      options: ["map", "forEach", "name", "id", "age"],
+      hint: "Blank 1 is an array method that transforms each element.",
+      active: true,
+      order: 2
+    },
+    {
+      level: 2,
+      code: `const adults = people.___(
+  (p) => p.age ___ 18
+);`,
+      blanks: 2,
+      answers: ["filter", ">="],
+      options: ["filter", "find", ">=", ">", "==="],
+      hint: "Blank 1 returns a new array with elements that pass a test.",
+      active: true,
+      order: 3
+    },
+    {
+      level: 2,
+      code: `const result = arr.___(
+  (a, b) => a.___(b)
+);`,
+      blanks: 2,
+      answers: ["reduce", "concat"],
+      options: ["reduce", "join", "concat", "push", "merge"],
+      hint: "Think about combining arrays into one.",
+      active: true,
+      order: 4
+    },
+    {
+      level: 3,
+      code: `async function getData() {
+  const res = await ___("/api/data");
+  const data = await res.___();
+  return data;
+}`,
+      blanks: 2,
+      answers: ["fetch", "json"],
+      options: ["fetch", "axios", "json", "text", "parse"],
+      hint: "The browser API for making HTTP requests.",
+      active: true,
+      order: 5
+    },
+    {
+      level: 3,
+      code: `const unique = [...new ___(arr)];
+console.___("Unique items:", unique);`,
+      blanks: 2,
+      answers: ["Set", "log"],
+      options: ["Set", "Map", "log", "warn", "dir"],
+      hint: "This data structure only stores unique values.",
+      active: true,
+      order: 6
+    },
+    {
+      level: 4,
+      code: `class Animal {
+  ___(name) {
+    this.___ = name;
+  }
+}`,
+      blanks: 2,
+      answers: ["constructor", "name"],
+      options: ["constructor", "create", "name", "type", "self"],
+      hint: "The special method called when creating a new instance.",
+      active: true,
+      order: 7
+    },
+    {
+      level: 4,
+      code: `const [first, ...___] = items;
+const obj = { ...defaults, ...___ };`,
+      blanks: 2,
+      answers: ["rest", "overrides"],
+      options: [
+        "rest",
+        "remaining",
+        "others",
+        "overrides",
+        "config",
+        "props"
+      ],
+      hint: "The spread/rest operator collects remaining elements.",
+      active: true,
+      order: 8
+    }
+  ];
+
+  try {
+    for (const question of starterQuestions) {
+      await addDoc(
+        collection(db, "Questions"),
+        question
+      );
+    }
+
+    console.log("Starter questions created successfully.");
+  } catch (error) {
+    console.error("Failed to seed questions:", error);
+  }
+}
+// ============================================
+// FIRESTORE
+// ============================================
+
+async function loadQuestionsFromFirestore() {
+  try {
+    const questionsQuery = query(
+      collection(db, "Questions"),
+      where("active", "==", true),
+      orderBy("order")
+    );
+
+    const snapshot = await getDocs(questionsQuery);
+
+    questions = snapshot.docs.map((docSnapshot) => ({
+      id: docSnapshot.id,
+      ...docSnapshot.data()
+    }));
+
+    if (questions.length === 0) {
+      throw new Error("No questions found in Firestore.");
+    }
+
+    console.log(`Loaded ${questions.length} questions`);
+
+  } catch (error) {
+    console.error("Failed to load questions:", error);
+    alert("Failed to load questions.");
+  }
+}
 // ============================================
 // GAME STATE
 // ============================================
@@ -77,7 +185,7 @@ let state = {
   lives: 3,
   score: 0,
   hints: 2,
-  timer: 30,
+  timer: 60,
   timerInterval: null,
   selectedAnswers: [],
   activeBlank: 0,
@@ -88,11 +196,26 @@ let state = {
 // ============================================
 // INIT
 // ============================================
-window.addEventListener('DOMContentLoaded', () => {
-  // Game logic only applies to pages that render the game board (e.g. Game.html).
-  if (!document.querySelector('.bottom-panel-rect')) return;
-  loadQuestion();
-  startTimer();
+window.addEventListener("DOMContentLoaded", async () => {
+
+  if (!document.querySelector(".bottom-panel-rect")) {
+    return;
+  }
+
+  try {
+
+    // Creates Questions collection only if it doesn't exist
+    await seedQuestionsIfEmpty();
+
+    // Loads questions into the questions array
+    await loadQuestionsFromFirestore();
+
+    loadQuestion();
+    startTimer();
+
+  } catch (error) {
+    console.error("Game startup failed:", error);
+  }
 });
 
 function setBottomPanelResultMode(isActive) {
@@ -123,7 +246,7 @@ function updateStats() {
 // ============================================
 function startTimer() {
   clearInterval(state.timerInterval);
-  state.timer = 30;
+  state.timer = 60;
   updateTimerDisplay();
   state.timerInterval = setInterval(() => {
     state.timer--;
@@ -260,7 +383,7 @@ function pickOption(value, btnEl) {
 // ============================================
 // SUBMIT
 // ============================================
-function submitAnswer() {
+async function submitAnswer() {
   const q = questions[state.currentQuestion];
   state.totalAttempts++;
 
@@ -273,13 +396,20 @@ function submitAnswer() {
 
   const isCorrect = q.answers.every((ans, i) => state.selectedAnswers[i] === ans);
 
-  if (isCorrect) {
-    state.correctCount++;
-    const points = 10 * state.level;
-    state.score += points;
-    updateStats();
+ if (isCorrect) {
+  state.correctCount++;
 
-    showFeedback('correct', `Points: +${points}\n\nBonus Time: +5 seconds`);
+  const points = 10 * state.level;
+  state.score += points;
+
+  updateStats();
+
+  await saveProgress();
+
+  showFeedback(
+    'correct',
+    `Points: +${points}\n\nBonus Time: +5 seconds`
+  );
 
     // Check level up
     const nextQ = questions[state.currentQuestion + 1];
@@ -294,6 +424,35 @@ function submitAnswer() {
     updateStats();
 
     if (state.lives <= 0) {
+      async function saveFinalResults() {
+  const user = auth.currentUser;
+
+  if (!user) {
+    return;
+  }
+
+  const accuracy =
+    state.totalAttempts > 0
+      ? Math.round(
+          (state.correctCount / state.totalAttempts) * 100
+        )
+      : 0;
+
+  try {
+    await updateDoc(
+      doc(db, "Learners", user.uid),
+      {
+        finalScore: state.score,
+        highestLevel: state.level,
+        accuracy: accuracy,
+        gamesPlayed: increment(1),
+        lastPlayed: serverTimestamp()
+      }
+    );
+  } catch (error) {
+    console.error("Failed to save final results:", error);
+  }
+}
       showGameOver();
     } else {
       showFeedback('incorrect', `Life Lost: -1\nLives Remaining: ${state.lives}`);
@@ -366,6 +525,27 @@ function playAgain() {
     totalAttempts: 0,
   };
   updateStats();
+  async function saveProgress() {
+  const user = auth.currentUser;
+
+  if (!user) {
+    return;
+  }
+
+  try {
+    await updateDoc(
+      doc(db, "Learners", user.uid),
+      {
+        progress: state.currentQuestion + 1,
+        level: state.level,
+        score: state.score,
+        lastPlayed: serverTimestamp()
+      }
+    );
+  } catch (error) {
+    console.error("Error saving progress:", error);
+  }
+}
   loadQuestion();
 }
 
@@ -393,8 +573,9 @@ function showFeedback(type, message) {
   }
 }
 
-function showGameOver() {
+async function showGameOver() {
   clearInterval(state.timerInterval);
+  await saveFinalResults();
   hideAllFeedback();
   document.getElementById('game-area').classList.add('hidden');
 
@@ -409,3 +590,12 @@ function showGameOver() {
   setBottomPanelResultMode(true);
 }
 
+window.toggleSidebar = toggleSidebar;
+window.useHint = useHint;
+window.submitAnswer = submitAnswer;
+window.selectBlank = selectBlank;
+window.closeHint = closeHint;
+window.nextQuestion = nextQuestion;
+window.tryAgain = tryAgain;
+window.continueGame = continueGame;
+window.playAgain = playAgain;
