@@ -1,8 +1,28 @@
-const subjects = [
-    { name: 'JavaScript', score: 70, total: 100 },
-    { name: 'HTML', score: 90, total: 100 },
-    { name: 'CSS', score: 100, total: 100 },
-];
+import { 
+    ref,
+    get 
+} from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
+
+
+async function fetchTaskTotals() {
+    const taskTotalsElement = document.getElementById('taskTotals');
+
+    try {
+        const taskRef = ref(database, 'tasks');
+        const snapshot = await get(taskRef);
+        let total = 0;
+        if (snapshot.exists()) {
+            total = Object.keys(snapshot.val()).length;
+        }
+        taskTotalsElement.textContent = total;
+    } catch (error) {
+        console.error('Error fetching task totals:', error);
+        taskTotalsElement.textContent = 'Unable to load task totals';
+    }
+}
+
+fetchTaskTotals();
+
 
 const taskRows = document.getElementById('taskRows');
 const taskSearch = document.getElementById('taskSearch');
@@ -33,6 +53,7 @@ refreshBtn.addEventListener('click', function () {
 });
 
 renderRows();
+
 
 function toggleSidebar() {
     const sidebar = document.querySelector('.sidebar');
