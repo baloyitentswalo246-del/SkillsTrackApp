@@ -131,7 +131,7 @@
       </div>
 
       <div class="task-breadcrumb-row task-breadcrumb-row-center">
-        <a class="task-breadcrumb" href="learnerDashboard.html">
+        <a class="task-breadcrumb" href="AssessorDashboard.html">
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <line x1="3" y1="6" x2="21" y2="6"/>
             <line x1="3" y1="12" x2="21" y2="12"/>
@@ -147,6 +147,53 @@
 
       <h2 class="task-page-title">Learners</h2>
 
+
+<section class="learners-panel" aria-label="Learners">
+
+    <div class="learners-panel-header">
+        <h3>LEARNERS</h3>
+    </div>
+
+    <div class="learners-search">
+        <label for="learnerSearch">Search :</label>
+        <input
+            type="search"
+            id="learnerSearch"
+            placeholder="Search learners..."
+            autocomplete="off"
+        >
+    </div>
+
+    <p id="learnersMessage" class="learners-message"
+       role="status" aria-live="polite">
+        Loading learners...
+    </p>
+
+    <div id="learnersList" class="learners-list">
+        <!-- Learner cards are loaded from Firestore -->
+    </div>
+
+</section>
+
+<!-- Learner details dialog -->
+<dialog id="learnerDetailsDialog" class="learner-details-dialog">
+    <div class="learner-dialog-header">
+        <h3>Learner Details</h3>
+        <button type="button" id="closeLearnerDialog"
+                class="learner-dialog-close"
+                aria-label="Close details">
+            &times;
+        </button>
+    </div>
+
+    <div id="learnerDetailsContent" class="learner-details-content">
+    </div>
+
+    <button type="button" id="closeLearnerDialogBtn"
+            class="learner-dialog-done">
+        Close
+    </button>
+</dialog>
 
     <div class="footer-rect">
       <svg class="footer-icon fi-mail" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
