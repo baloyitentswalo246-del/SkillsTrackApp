@@ -589,8 +589,7 @@ async function showGameOver() {
   setBottomPanelResultMode(true);
 }
 
-const firstName = profile.firstName.trim().split(" ")[0];
-document.getElementById('learner-text').textContent = firstName;
+
 
 window.toggleSidebar = toggleSidebar;
 window.useHint = useHint;
