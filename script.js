@@ -12,7 +12,6 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 
 import { auth, db } from "../firebase.config.js";
-
 let questions = [];
 
 async function seedQuestionsIfEmpty() {
@@ -589,6 +588,9 @@ async function showGameOver() {
   document.getElementById('game-over').classList.remove('hidden');
   setBottomPanelResultMode(true);
 }
+
+const firstName = profile.firstName.trim().split(" ")[0];
+document.getElementById('learner-text').textContent = firstName;
 
 window.toggleSidebar = toggleSidebar;
 window.useHint = useHint;
