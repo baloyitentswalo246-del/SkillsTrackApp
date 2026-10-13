@@ -1,3 +1,4 @@
+
 import {
   collection,
   getDocs,
@@ -8,10 +9,169 @@ import {
   doc,
   updateDoc,
   increment,
-  serverTimestamp
+  serverTimestamp,
+  setDoc,
+  runTransaction
 } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 
 import { auth, db } from "../firebase.config.js";
+
+/* ==========================================
+   GAME RESULTS - FIRESTORE
+   ========================================== */
+
+// Each play-through receives a unique Firestore document ID.
+let gameResultId = null;
+let gameOverHandled = false;
+let finalSavePromise = null;
+
+function startNewGameRecord() {
+  gameResultId = doc(collection(db, "GameResults")).id;
+  gameOverHandled = false;
+  finalSavePromise = null;
+}
+
+function calculateAccuracy() {
+  return state.totalAttempts > 0
+    ? Math.round(
+        (state.correctCount / state.totalAttempts) * 100
+      )
+    : 0;
+}
+
+// Save the learner's ongoing progress.
+async function saveProgress() {
+  const user = auth.currentUser;
+
+  if (!user) {
+    console.warn("Progress not saved: learner is not signed in.");
+    return;
+  }
+
+  try {
+    await updateDoc(doc(db, "Learners", user.uid), {
+      progress: state.currentQuestion + 1,
+      level: state.level,
+      score: state.score,
+      lastPlayed: serverTimestamp()
+    });
+  } catch (error) {
+    console.error("Error saving game progress:", error);
+  }
+}
+
+// Save one final result per game session.
+async function saveFinalResults() {
+  // Reuse an existing save operation if game over fires twice.
+  if (finalSavePromise) {
+    return finalSavePromise;
+  }
+
+  finalSavePromise = (async () => {
+    const user = auth.currentUser;
+
+    if (!user) {
+      console.warn(
+        "Game result cannot be saved: learner is not signed in."
+      );
+      return false;
+    }
+
+    // Also protects against a missing session ID.
+    if (!gameResultId) {
+      startNewGameRecord();
+    }
+
+    const completedAllQuestions =
+      state.currentQuestion >= questions.length;
+
+    const accuracy = calculateAccuracy();
+
+    const result = {
+      learnerUid: user.uid,
+      learnerName:
+        user.displayName ||
+        user.email ||
+        "Unknown learner",
+      learnerEmail: user.email || "",
+
+      gameName: "Code Challenge",
+      gameType: "Coding Quiz",
+
+      score: state.score,
+      highestLevel: state.level,
+      correctAnswers: state.correctCount,
+      totalAttempts: state.totalAttempts,
+      accuracy: accuracy,
+      livesRemaining: state.lives,
+
+      questionsAvailable: questions.length,
+      status: completedAllQuestions
+        ? "Completed"
+        : "Game Over",
+
+      createdAt: serverTimestamp()
+    };
+
+    try {
+      // Create a new GameResults document for this play-through.
+      // A stable ID prevents repeated calls creating duplicate records.
+      await setDoc(
+        doc(db, "GameResults", gameResultId),
+        result
+      );
+
+      console.log("Game result saved:", gameResultId);
+
+    } catch (error) {
+      console.error("Failed to save game result:", error);
+
+      // Allow a later retry if the write failed.
+      finalSavePromise = null;
+      return false;
+    }
+
+    // Update the learner's aggregate statistics if their document exists.
+    try {
+      const learnerRef = doc(db, "Learners", user.uid);
+
+      await runTransaction(db, async (transaction) => {
+        const learnerSnapshot = await transaction.get(learnerRef);
+
+        if (!learnerSnapshot.exists()) {
+          return;
+        }
+
+        const learnerData = learnerSnapshot.data();
+
+        transaction.update(learnerRef, {
+          finalScore: state.score,
+          highestLevel: Math.max(
+            Number(learnerData.highestLevel || 0),
+            state.level
+          ),
+          accuracy: accuracy,
+          gamesPlayed:
+            Number(learnerData.gamesPlayed || 0) + 1,
+          lastPlayed: serverTimestamp()
+        });
+      });
+
+    } catch (error) {
+      // The GameResults record has already been saved.
+      console.error(
+        "Game result saved, but learner statistics failed to update:",
+        error
+      );
+    }
+
+    return true;
+  })();
+
+  return finalSavePromise;
+}
+
+
 let questions = [];
 
 async function seedQuestionsIfEmpty() {
@@ -145,9 +305,9 @@ const obj = { ...defaults, ...___ };`,
     console.error("Failed to seed questions:", error);
   }
 }
-// ============================================
+
 // FIRESTORE
-// ============================================
+
 
 async function loadQuestionsFromFirestore() {
   try {
@@ -165,7 +325,7 @@ async function loadQuestionsFromFirestore() {
     }));
 
     if (questions.length === 0) {
-      throw new Error("No questions found in Firestore.");
+      throw new Error("No questions found.");
     }
 
     console.log(`Loaded ${questions.length} questions`);
@@ -175,9 +335,9 @@ async function loadQuestionsFromFirestore() {
     alert("Failed to load questions.");
   }
 }
-// ============================================
+
 // GAME STATE
-// ============================================
+
 let state = {
   currentQuestion: 0,
   level: 1,
@@ -192,9 +352,8 @@ let state = {
   totalAttempts: 0,
 };
 
-// ============================================
 // INIT
-// ============================================
+
 window.addEventListener("DOMContentLoaded", async () => {
 
   if (!document.querySelector(".bottom-panel-rect")) {
@@ -209,8 +368,8 @@ window.addEventListener("DOMContentLoaded", async () => {
     // Loads questions into the questions array
     await loadQuestionsFromFirestore();
 
+    startNewGameRecord();
     loadQuestion();
-    startTimer();
 
   } catch (error) {
     console.error("Game startup failed:", error);
@@ -240,9 +399,8 @@ function updateStats() {
   document.getElementById('hints').textContent = state.hints;
 }
 
-// ============================================
 // TIMER
-// ============================================
+
 function startTimer() {
   clearInterval(state.timerInterval);
   state.timer = 60;
@@ -273,9 +431,9 @@ function handleTimeout() {
   }
 }
 
-// ============================================
+
 // LOAD QUESTION
-// ============================================
+
 function loadQuestion() {
   hideAllFeedback();
 
@@ -331,10 +489,9 @@ function loadQuestion() {
 function escapeHtml(text) {
   return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
-
-// ============================================
+ 
 // INTERACTION
-// ============================================
+ 
 function selectBlank(index) {
   state.activeBlank = index;
   document.querySelectorAll('.blank').forEach((el, i) => {
@@ -379,9 +536,8 @@ function pickOption(value, btnEl) {
   }
 }
 
-// ============================================
 // SUBMIT
-// ============================================
+
 async function submitAnswer() {
   const q = questions[state.currentQuestion];
   state.totalAttempts++;
@@ -459,9 +615,8 @@ async function submitAnswer() {
   }
 }
 
-// ============================================
 // HINTS
-// ============================================
+
 function useHint() {
   if (state.hints <= 0) {
     alert('No hints remaining!');
@@ -478,9 +633,9 @@ function closeHint() {
   hideAllFeedback();
 }
 
-// ============================================
+
 // NAVIGATION
-// ============================================
+
 function nextQuestion() {
   state.currentQuestion++;
   loadQuestion();
@@ -509,48 +664,38 @@ function showLevelComplete(completedLevel) {
   setBottomPanelResultMode(true);
 }
 
+
 function playAgain() {
+  clearInterval(state.timerInterval);
+
   state = {
     currentQuestion: 0,
     level: 1,
     lives: 3,
     score: 0,
     hints: 2,
-    timer: 30,
+    timer: 60,
     timerInterval: null,
     selectedAnswers: [],
     activeBlank: 0,
     correctCount: 0,
-    totalAttempts: 0,
+    totalAttempts: 0
   };
+
+  // Give this play-through its own GameResults document.
+  startNewGameRecord();
+
   updateStats();
-  async function saveProgress() {
-  const user = auth.currentUser;
 
-  if (!user) {
-    return;
-  }
+  document.getElementById("game-over").classList.add("hidden");
+  document.getElementById("level-complete").classList.add("hidden");
 
-  try {
-    await updateDoc(
-      doc(db, "Learners", user.uid),
-      {
-        progress: state.currentQuestion + 1,
-        level: state.level,
-        score: state.score,
-        lastPlayed: serverTimestamp()
-      }
-    );
-  } catch (error) {
-    console.error("Error saving progress:", error);
-  }
-}
   loadQuestion();
 }
 
-// ============================================
+
 // FEEDBACK HELPERS
-// ============================================
+
 function hideAllFeedback() {
   document.querySelectorAll('.feedback-modal').forEach((el) => el.classList.add('hidden'));
   document.getElementById('game-area').classList.remove('hidden');
@@ -573,22 +718,36 @@ function showFeedback(type, message) {
 }
 
 async function showGameOver() {
+  if (gameOverHandled) return;
+
+  gameOverHandled = true;
   clearInterval(state.timerInterval);
-  await saveFinalResults();
+
+  // Save the final score before showing the results.
+  const saved = await saveFinalResults();
+
   hideAllFeedback();
-  document.getElementById('game-area').classList.add('hidden');
 
-  const accuracy = state.totalAttempts > 0
-    ? Math.round((state.correctCount / state.totalAttempts) * 100)
-    : 0;
+  document.getElementById("game-area").classList.add("hidden");
 
-  const details = `Final Score: ${state.score}\nHighest Level: ${state.level}\nCorrect Answers: ${state.correctCount}\nAccuracy: ${accuracy}%`;
+  const accuracy = calculateAccuracy();
 
-  document.getElementById('game-over-details').textContent = details;
-  document.getElementById('game-over').classList.remove('hidden');
+  const details = [
+    `Final Score: ${state.score}`,
+    `Highest Level: ${state.level}`,
+    `Correct Answers: ${state.correctCount}`,
+    `Accuracy: ${accuracy}%`,
+    "",
+    saved
+      ? "Game results saved successfully."
+      : "Could not save results. Please check your connection and try again."
+  ].join("\n");
+
+  document.getElementById("game-over-details").textContent = details;
+  document.getElementById("game-over").classList.remove("hidden");
+
   setBottomPanelResultMode(true);
 }
-
 
 
 window.toggleSidebar = toggleSidebar;
