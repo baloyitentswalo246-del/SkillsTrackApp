@@ -149,8 +149,34 @@
 
       <h2 class="task-page-title">Learner Progress</h2>
 
-      
-      
+      <div class="task-breadcrumb-row task-breadcrumb-row-center" style="justify-content:space-between; gap:16px; margin: 20px 0;">
+        <div class="task-search" style="max-width:280px;">
+          <input type="search" id="learnerProgressSearch" placeholder="Search learner work" aria-label="Search learner progress">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+          <label for="learnerProgressSelect" style="font-weight:700;">Learner:</label>
+          <select id="learnerProgressSelect" style="min-width:200px; padding:10px 12px; border-radius:8px; border:1px solid #d9dee8; background:#fff;">
+            <option value="all">All learners</option>
+          </select>
+          <button type="button" class="task-refresh-btn" id="refreshProgressBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="23 4 23 10 17 10"/>
+              <polyline points="1 20 1 14 7 14"/>
+              <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+            </svg>
+            Refresh
+          </button>
+        </div>
+      </div>
+
+      <section class="task-panel" aria-label="Learner submission progress">
+        <div id="learnerProgressContainer"></div>
+      </section>
 
     </div><!-- /content-stack -->
 
@@ -198,6 +224,6 @@
 
 </div><!-- /frame -->
 
-<script src="assessor-learner-progress.js"></script>
+<script type="module" src="assessor-learner-progress.js"></script>
 </body>
 </html>

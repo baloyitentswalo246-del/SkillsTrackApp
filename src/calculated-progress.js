@@ -10,7 +10,7 @@ import {
   query,
   where
 } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
-
+// sidebar //
 window.toggleSidebar = function () {
   const sidebar = document.querySelector(".sidebar");
   const toggleBtn = document.getElementById("sidebar-toggle");
@@ -21,7 +21,7 @@ window.toggleSidebar = function () {
   toggleBtn.classList.toggle("is-collapsed", isCollapsed);
   toggleBtn.setAttribute("aria-expanded", String(!isCollapsed));
 };
-
+//elements//
 const taskRows = document.getElementById("taskRows");
 const taskSearch = document.getElementById("taskSearch");
 const refreshBtn = document.getElementById("refreshBtn");
@@ -36,6 +36,7 @@ function isCompletedStatus(status) {
   const normalized = normalizeStatus(status);
   return [
     "completed",
+    "submitted",
     "done",
     "finished",
     "passed",
@@ -43,6 +44,17 @@ function isCompletedStatus(status) {
   ].includes(normalized);
 }
 
+function isInProgressStatus(status) {
+  const normalized = normalizeStatus(status);
+  return [
+    "in progress",
+    "pending",
+    "draft",
+    "not started",
+    "started"
+  ].includes(normalized);
+}
+// changing values into text and substituting special HTML characters
 function escapeHtml(value = "") {
   return String(value)
     .replace(/&/g, "&amp;")
@@ -51,7 +63,7 @@ function escapeHtml(value = "") {
     .replace(/\"/g, "&quot;")
     .replace(/'/g, "&#039;");
 }
-
+// getting subject progress summary
 function getProgressSummary(tasks) {
   const summary = new Map();
 
@@ -85,12 +97,13 @@ function getProgressSummary(tasks) {
       return a.subject.localeCompare(b.subject);
     });
 }
-
+// rendering progress summary
 function renderProgress() {
   if (!taskRows) return;
 
   const searchTerm = (taskSearch?.value || "").trim().toLowerCase();
   const totalTasks = allTasks.length;
+  const inProgressTasks = allTasks.filter((task) => isInProgressStatus(task.status)).length;
   const completedTasks = allTasks.filter((task) => isCompletedStatus(task.status)).length;
   const overallPercentage = totalTasks ? Math.round((completedTasks / totalTasks) * 100) : 0;
   const summary = getProgressSummary(allTasks);
@@ -164,6 +177,16 @@ function renderProgress() {
       <div class="subject-row">
         <span class="subject-row-label">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 2v20"/>
+            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7H14.5a3.5 3.5 0 0 1 0 7H6"/>
+          </svg>
+          In Progress
+        </span>
+        <span>${inProgressTasks}</span>
+      </div>
+      <div class="subject-row">
+        <span class="subject-row-label">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <polyline points="20 6 9 17 4 12"/>
           </svg>
           Completed
@@ -173,8 +196,8 @@ function renderProgress() {
       <div class="subject-row">
         <span class="subject-row-label">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M12 2v20"/>
-            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7H14.5a3.5 3.5 0 0 1 0 7H6"/>
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M12 7v5l3 3"/>
           </svg>
           Progress
         </span>
@@ -199,7 +222,7 @@ function renderProgress() {
     `}
   `;
 }
-
+// loading learner progress from Firestore
 async function loadLearnerProgress(user) {
   try {
     const q = query(
@@ -245,7 +268,7 @@ async function loadLearnerProgress(user) {
     }
   }
 }
-
+// adding event listeners for learner progress
 if (taskSearch) {
   taskSearch.addEventListener("input", renderProgress);
 }
@@ -259,7 +282,7 @@ if (refreshBtn) {
     }
   });
 }
-
+// checking authentication state and loading learner progress
 onAuthStateChanged(auth, async (user) => {
   if (!user) {
     allTasks = [];
