@@ -172,19 +172,174 @@
 
       <h2 class="task-page-title">Reports</h2>
 
-      <div class="task-breadcrumb-row task-breadcrumb-row-center" ></div>
-        <div class="task-search">
-          <input type="search" id="reportsSearch" placeholder="Search learner reports" aria-label="Search reports">
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="11" cy="11" r="7"/>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-          </svg>
-        </div>
-      </div>
+      
+<section class="reports-page">
 
-      <section class="task-panel" aria-label="Learner reports">
-        <div id="reportsContainer"></div>
-      </section>
+    <header class="reports-header">
+        <h3>REPORTS</h3>
+        <p>View and download learner's reports</p>
+    </header>
+
+    <!-- Report filters -->
+    <section class="reports-filter-panel" aria-label="Report filters">
+
+        <div class="report-field">
+            <label for="reportType">Reports type</label>
+            <select id="reportType">
+                <option value="all">All Reports</option>
+                <option value="learners">Learner Reports</option>
+                <option value="games">Game Results Reports</option>
+                <option value="bookings">Support Bookings Reports</option>
+                <option value="tasks">Task Reports</option>
+            </select>
+        </div>
+
+        <div class="report-field">
+            <label for="fromDate">From Date</label>
+            <input type="date" id="fromDate">
+        </div>
+
+        <div class="report-field">
+            <label for="toDate">To Date</label>
+            <input type="date" id="toDate">
+        </div>
+
+        <div class="report-field">
+            <label for="reportLearner">Learners</label>
+            <select id="reportLearner">
+                <option value="all">All Learners</option>
+            </select>
+        </div>
+
+        <button type="button" id="showReportsBtn" class="report-show-btn">
+            Show Reports
+        </button>
+
+    </section>
+
+    <p id="reportsMessage" class="reports-message"
+       role="status" aria-live="polite">
+        Loading report data...
+    </p>
+
+    <!-- Dashboard statistics -->
+    <section class="report-stats" aria-label="Report statistics">
+
+        <article class="report-stat">
+            <div class="report-stat-label">Total Learners</div>
+            <div class="report-stat-bottom">
+                <span class="report-stat-icon" aria-hidden="true">♙</span>
+                <strong id="totalLearners">—</strong>
+            </div>
+        </article>
+
+        <article class="report-stat">
+            <div class="report-stat-label">Tasks Completed</div>
+            <div class="report-stat-bottom">
+                <span class="report-stat-icon" aria-hidden="true">☑</span>
+                <strong id="tasksCompleted">—</strong>
+            </div>
+        </article>
+
+        <article class="report-stat">
+            <div class="report-stat-label">Outstanding Tasks</div>
+            <div class="report-stat-bottom">
+                <span class="report-stat-icon" aria-hidden="true">⊠</span>
+                <strong id="outstandingTasks">—</strong>
+            </div>
+        </article>
+
+        <article class="report-stat">
+            <div class="report-stat-label">Average Progress</div>
+            <div class="report-stat-bottom">
+                <span class="report-stat-icon" aria-hidden="true">↗</span>
+                <strong id="averageProgress">—</strong>
+            </div>
+        </article>
+
+        <article class="report-stat">
+            <div class="report-stat-label">Average Game Score</div>
+            <div class="report-stat-bottom">
+                <span class="report-stat-icon" aria-hidden="true">▷</span>
+                <strong id="averageGameScore">—</strong>
+            </div>
+        </article>
+
+    </section>
+
+    <!-- Available reports -->
+    <section class="available-reports">
+
+        <h3>Reports Available</h3>
+
+        <article class="available-report">
+            <span class="available-report-icon" aria-hidden="true">▤</span>
+            <span class="available-report-name">Learner Reports</span>
+            <button type="button" class="report-action-btn"
+                    data-report="learners"
+                    aria-label="Download learner reports"
+                    title="Download learner reports">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2"/>
+                    <path d="M6 14h12v7H6z"/>
+                    <path d="M18 11h.01"/>
+                </svg>
+            </button>
+        </article>
+
+        <article class="available-report">
+            <span class="available-report-icon" aria-hidden="true">▤</span>
+            <span class="available-report-name">Game Results Reports</span>
+            <button type="button" class="report-action-btn"
+                    data-report="games"
+                    aria-label="Download game results reports"
+                    title="Download game results reports">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2"/>
+                    <path d="M6 14h12v7H6z"/>
+                    <path d="M18 11h.01"/>
+                </svg>
+            </button>
+        </article>
+
+        <article class="available-report">
+            <span class="available-report-icon" aria-hidden="true">▤</span>
+            <span class="available-report-name">Support Bookings Reports</span>
+            <button type="button" class="report-action-btn"
+                    data-report="bookings"
+                    aria-label="Download support bookings reports"
+                    title="Download support bookings reports">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2"/>
+                    <path d="M6 14h12v7H6z"/>
+                    <path d="M18 11h.01"/>
+                </svg>
+            </button>
+        </article>
+
+    </section>
+
+    <!-- Preview and download the currently filtered results -->
+    <section class="report-preview">
+        <div class="report-preview-heading">
+            <h3 id="reportPreviewTitle">Report Preview</h3>
+            <button type="button" id="downloadCurrentReport"
+                    class="report-download-btn">
+                Download CSV
+            </button>
+        </div>
+
+        <div class="report-table-wrap">
+            <table class="report-table">
+                <thead id="reportTableHead"></thead>
+                <tbody id="reportTableBody"></tbody>
+            </table>
+        </div>
+    </section>
+
+</section>
+
+      
 
     </div><!-- /content-stack -->
 
@@ -226,11 +381,11 @@
       </div>
 
       <img class="footer-logo" src="../designs/Images/skillstrackapp.png" alt="SkillsTrackApp" />
-    </div><!-- /footer -->
+    </div>
 
-  </div><!-- /below-nav -->
+  </div>
 
-</div><!-- /frame -->
+</div>
 
 <script type="module" src="navbar-user.js"></script>
 <script type="module" src="assessor-reports.js"></script>
