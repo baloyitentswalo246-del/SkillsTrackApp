@@ -49,7 +49,23 @@ async function logoutUser() {
 
 window.logoutUser = logoutUser;
 
+const isIndexPage = () => {
+  const path = window.location.pathname || "";
+  return path.endsWith("/src/index.html") || path.endsWith("/index.html") || path === "/" || path.endsWith("/SkillsTrackApp/");
+};
+
+function removeLogoutButtons() {
+  document.querySelectorAll(".logout-pill, .logout-btn, [data-logout-button]").forEach((button) => {
+    button.remove();
+  });
+}
+
 function ensureLogoutButton() {
+  if (isIndexPage()) {
+    removeLogoutButtons();
+    return;
+  }
+
   const existingButton = document.querySelector(".logout-pill, .logout-btn, [data-logout-button]");
   if (existingButton) {
     existingButton.dataset.logoutButton = "true";
@@ -88,9 +104,21 @@ function ensureLogoutButton() {
 
 onAuthStateChanged(auth, (user) => {
   updateNavbarUser(user);
+  if (isIndexPage()) {
+    removeLogoutButtons();
+    return;
+  }
+
   if (user) {
     ensureLogoutButton();
   }
 });
 
-document.addEventListener("DOMContentLoaded", ensureLogoutButton);
+document.addEventListener("DOMContentLoaded", () => {
+  if (isIndexPage()) {
+    removeLogoutButtons();
+    return;
+  }
+
+  ensureLogoutButton();
+});
