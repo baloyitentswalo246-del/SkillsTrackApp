@@ -1,15 +1,3 @@
-const message = document.getElementById('bookingMessage');
-
-function toggleSidebar() {
-    const sidebar = document.querySelector('.sidebar');
-    const toggleBtn = document.getElementById('sidebar-toggle');
-    if (!sidebar || !toggleBtn) return;
-
-    const isCollapsed = sidebar.classList.toggle('is-collapsed');
-    toggleBtn.classList.toggle('is-collapsed', isCollapsed);
-    toggleBtn.setAttribute('aria-expanded', String(!isCollapsed));
-}
-
 
 import { auth, db } from "../firebase.config.js";
 
@@ -23,10 +11,10 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 
 
-
+// ==========================================
 // CONFIGURATION
 // Change these names to match your database.
-
+// ==========================================
 
 const COLLECTIONS = {
     learners: "Learners",
@@ -36,8 +24,9 @@ const COLLECTIONS = {
 };
 
 
+// ==========================================
 // ELEMENTS
-
+// ==========================================
 
 const reportType = document.getElementById("reportType");
 const fromDate = document.getElementById("fromDate");
@@ -56,8 +45,9 @@ const downloadCurrentReport = document.getElementById(
 );
 
 
+// ==========================================
 // STATE
-
+// ==========================================
 
 let currentUser = null;
 let learners = [];
@@ -68,8 +58,10 @@ let games = [];
 let currentReportRows = [];
 let currentReportColumns = [];
 
-// SAFE FIELD HELPERS
 
+// ==========================================
+// SAFE FIELD HELPERS
+// ==========================================
 
 function firstValue(object, fields, fallback = "") {
     for (const field of fields) {
@@ -181,9 +173,9 @@ function escapeCsv(value) {
 }
 
 
-
+// ==========================================
 // LOAD COLLECTIONS
-
+// ==========================================
 
 async function loadCollection(collectionName) {
     const snapshot = await getDocs(
@@ -197,7 +189,7 @@ async function loadCollection(collectionName) {
 }
 
 async function loadAllReportsData() {
-    reportsMessage.textContent = "Loading reports, please wait..";
+    reportsMessage.textContent = "Loading reports from Firestore...";
 
     const results = await Promise.allSettled([
         loadCollection(COLLECTIONS.learners),
@@ -242,7 +234,7 @@ async function loadAllReportsData() {
         failedCollections.push(COLLECTIONS.games);
         console.warn(
             `Could not load ${COLLECTIONS.games}. ` +
-            "Check its name and try again.",
+            "Check its name and Firestore permissions.",
             gameResult.reason
         );
     }
@@ -255,7 +247,7 @@ async function loadAllReportsData() {
         reportsMessage.textContent =
             "Some data could not be loaded: " +
             failedCollections.join(", ") +
-            ". Check the collection names.";
+            ". Check the collection names and permissions.";
     } else {
         reportsMessage.textContent =
             `Reports loaded successfully. ${learners.length} learners found.`;
@@ -263,8 +255,9 @@ async function loadAllReportsData() {
 }
 
 
+// ==========================================
 // LEARNER FILTER
-
+// ==========================================
 
 function populateLearnerDropdown() {
     reportLearner.replaceChildren();
@@ -292,9 +285,9 @@ function populateLearnerDropdown() {
 }
 
 
-
+// ==========================================
 // STATUS HELPERS
-
+// ==========================================
 
 function normalizedStatus(record) {
     return String(
@@ -332,13 +325,15 @@ function belongsToLearner(record, selectedId) {
 
     const recordUid = learnerId(record);
 
-    // Support records referencing either the learner document ID or the Firebase learner UID.
+    // Support records referencing either the learner document ID
+    // or the Firebase learner UID.
     return ids.includes(recordUid);
 }
 
 
+// ==========================================
 // DATE FILTERS
-
+// ==========================================
 
 function withinDateRange(record) {
     const start = fromDate.value
@@ -365,8 +360,10 @@ function withinDateRange(record) {
     return true;
 }
 
-// PROGRESS AND GAME SCORES
 
+// ==========================================
+// PROGRESS AND GAME SCORES
+// ==========================================
 
 function taskProgressForLearner(learner) {
     const learnerTasks = tasks.filter(
@@ -416,8 +413,9 @@ function average(values) {
 }
 
 
+// ==========================================
 // DASHBOARD STATISTICS
-
+// ==========================================
 
 function setText(id, value) {
     document.getElementById(id).textContent = value;
@@ -469,9 +467,9 @@ function updateStatistics() {
 }
 
 
-
+// ==========================================
 // REPORT DEFINITIONS
-
+// ==========================================
 
 function learnerRows() {
     return learners
@@ -594,9 +592,9 @@ function gameRows() {
 }
 
 
-
+// ==========================================
 // BUILD CURRENT REPORT
-
+// ==========================================
 
 function getReportDefinition(type) {
     switch (type) {
@@ -664,9 +662,9 @@ function applyReportFilters() {
 }
 
 
-
+// ==========================================
 // RENDER TABLE SAFELY
-
+// ==========================================
 
 function renderReportTable() {
     reportTableHead.replaceChildren();
@@ -710,9 +708,9 @@ function renderReportTable() {
 }
 
 
-
+// ==========================================
 // DOWNLOAD CSV
-
+// ==========================================
 
 function downloadCsv(type, rows) {
     if (!rows.length) {
@@ -766,8 +764,9 @@ downloadCurrentReport.addEventListener("click", () => {
 });
 
 
+// ==========================================
 // REPORT ACTION BUTTONS
-
+// ==========================================
 
 document.querySelectorAll(".report-action-btn").forEach((button) => {
     button.addEventListener("click", () => {
@@ -783,9 +782,9 @@ document.querySelectorAll(".report-action-btn").forEach((button) => {
 });
 
 
-
+// ==========================================
 // FILTER EVENTS
-
+// ==========================================
 
 showReportsBtn.addEventListener("click", () => {
     if (
@@ -806,9 +805,9 @@ reportType.addEventListener("change", applyReportFilters);
 reportLearner.addEventListener("change", applyReportFilters);
 
 
-
+// ==========================================
 // AUTHENTICATION
-
+// ==========================================
 
 onAuthStateChanged(auth, async (user) => {
     currentUser = user;
@@ -837,7 +836,7 @@ onAuthStateChanged(auth, async (user) => {
         console.error("Error loading reports:", error);
 
         reportsMessage.textContent =
-            "Could not load report data..";
+            "Could not load report data. Check your Firebase configuration and permissions.";
     }
 });
 
