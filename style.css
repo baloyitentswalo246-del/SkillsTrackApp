@@ -1727,3 +1727,926 @@ body.outstanding-work-page .sidebar {
     opacity: 0.6;
     cursor: not-allowed;
 }
+
+/* Learners panel */
+.learners-panel {
+    width: 100%;
+    max-width: 480px;
+    margin: 28px auto;
+    padding: 14px;
+    box-sizing: border-box;
+
+    background: linear-gradient(145deg, #c0dfe5, #a8ccd4);
+    border: 1px solid #a4c8d0;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(35, 85, 96, 0.12);
+
+    font-family: 'Nunito', sans-serif;
+    color: #25353b;
+}
+
+.learners-panel-header {
+    margin-bottom: 26px;
+}
+
+.learners-panel-header h3 {
+    margin: 0;
+    padding: 12px 10px;
+
+    border-radius: 12px;
+    background: #a6cbd3;
+    box-shadow: inset 0 2px 5px rgba(38, 87, 98, 0.10);
+
+    color: #25353b;
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+.learners-search {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 0 0 14px;
+    padding: 0 0 0 1px;
+}
+
+.learners-search label {
+    flex-shrink: 0;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.learners-search input {
+    width: 100%;
+    min-width: 0;
+    height: 36px;
+    padding: 6px 12px;
+    box-sizing: border-box;
+
+    background: #e5efff;
+    border: 2px solid #318dc9;
+    border-radius: 22px;
+    outline: none;
+
+    font: inherit;
+    font-size: 13px;
+    color: #26383f;
+}
+
+.learners-search input:focus {
+    border-color: #2474a8;
+    box-shadow: 0 0 0 3px rgba(49, 141, 201, 0.15);
+}
+
+.learners-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0;
+    overflow: hidden;
+
+    background: #e0ecff;
+    border: 1px solid rgba(82, 139, 158, 0.18);
+    border-radius: 5px;
+}
+
+.learner-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    min-height: 82px;
+    padding: 12px 7px 10px 12px;
+    box-sizing: border-box;
+
+    background: #e0ecff;
+    border-bottom: 1px solid #c6d9ed;
+    transition: background 0.2s ease;
+}
+
+.learner-card:last-child {
+    border-bottom: none;
+}
+
+.learner-card:hover {
+    background: #d4e5fa;
+}
+
+.learner-card-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    flex: 1;
+}
+
+.learner-profile-icon {
+    flex: 0 0 19px;
+    width: 19px;
+    height: 19px;
+
+    fill: none;
+    stroke: #26383f;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.learner-name {
+    margin: 0;
+    overflow-wrap: anywhere;
+
+    font-size: 14px;
+    font-weight: 800;
+    color: #202b32;
+}
+
+.learner-view-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    flex-shrink: 0;
+
+    padding: 5px 8px;
+    border: none;
+    border-radius: 18px;
+
+    background: #438f91;
+    color: #fff;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 800;
+
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.learner-view-btn:hover {
+    background: #327779;
+    transform: translateY(-1px);
+}
+
+.learner-view-btn svg {
+    width: 15px;
+    height: 15px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.learners-message {
+    margin: 0 0 10px;
+    font-size: 13px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.learners-message:empty {
+    display: none;
+}
+
+/* Learner details dialog */
+.learner-details-dialog {
+    width: min(400px, calc(100% - 36px));
+    max-height: 80vh;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+
+    border: 1px solid #a4c8d0;
+    border-radius: 15px;
+    background: #e0ecff;
+    color: #25353b;
+
+    font-family: 'Nunito', sans-serif;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.22);
+}
+
+.learner-details-dialog::backdrop {
+    background: rgba(22, 44, 52, 0.5);
+}
+
+.learner-dialog-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.learner-dialog-header h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.learner-dialog-close {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background: #c0dfe5;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.learner-details-content p {
+    margin: 0 0 12px;
+    overflow-wrap: anywhere;
+    font-size: 14px;
+}
+
+.learner-dialog-done {
+    width: 100%;
+    margin-top: 8px;
+    padding: 10px;
+    border: none;
+    border-radius: 22px;
+    background: #438f91;
+    color: #fff;
+    font: inherit;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .learners-panel {
+        max-width: 100%;
+        margin: 18px auto;
+        padding: 10px;
+    }
+
+    .learner-card {
+        min-height: 76px;
+    }
+
+    .learner-name {
+        font-size: 13px;
+    }
+}
+
+/* =========================================
+   SKILLSTRACKAPP — CARTOON ANIMATION THEME
+   Inspired by the official logo
+   ========================================= */
+
+:root {
+    --cartoon-aqua: #8de0ed;
+    --cartoon-cyan: #50ccdf;
+    --cartoon-coral: #ff555b;
+    --cartoon-pink: #ff5eae;
+    --cartoon-teal: #2e8d91;
+    --cartoon-white: #ffffff;
+    --cartoon-shadow: rgba(28, 92, 111, 0.17);
+}
+
+/* Smooth page entrance */
+body {
+    animation: pageAppear 0.7s ease-out both;
+}
+
+@keyframes pageAppear {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   FLOATING BRAND LOGO
+   ========================================= */
+
+.brand,
+.footer-logo {
+    transform-origin: center;
+    animation: logoFloat 4s ease-in-out infinite;
+    transition: filter 0.3s ease;
+}
+
+.brand:hover,
+.footer-logo:hover {
+    filter: drop-shadow(0 5px 8px rgba(80, 204, 223, 0.4));
+}
+
+@keyframes logoFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-5px) rotate(-1deg);
+    }
+}
+
+/* =========================================
+   CARTOON CLOUD WELCOME BANNER
+   ========================================= */
+
+.welcome {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            ellipse at 12% 0%,
+            rgba(255, 255, 255, 0.8),
+            transparent 42%
+        ),
+        linear-gradient(145deg, #a5e5ee, #b7dce6 65%, #d1eaf0);
+
+    border: 2px solid #8bcbd8;
+    box-shadow:
+        inset 0 4px 12px rgba(255, 255, 255, 0.6),
+        0 7px 0 rgba(63, 149, 166, 0.1),
+        0 12px 24px rgba(45, 111, 131, 0.08);
+
+    animation: bannerEnter 0.8s cubic-bezier(.2, .8, .2, 1) both;
+}
+
+/* Soft animated cartoon cloud */
+.welcome::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+
+    width: 155px;
+    height: 110px;
+    right: -25px;
+    top: -24px;
+
+    border-radius:
+        48% 52% 42% 58% /
+        54% 42% 58% 46%;
+
+    background: var(--cartoon-aqua);
+    opacity: 0.6;
+
+    box-shadow:
+        -32px 25px 0 -9px #8de0ed,
+        -60px 39px 0 -19px #8de0ed,
+        -15px 66px 0 -26px #50ccdf;
+
+    animation: cloudDrift 7s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* Tiny cartoon sparkles */
+.welcome::after {
+    content: "✦";
+    position: absolute;
+    z-index: 0;
+    top: 15px;
+    left: 18px;
+
+    color: #ffffff;
+    font-size: 25px;
+    text-shadow:
+        34px 25px 0 var(--cartoon-pink),
+        0 0 12px rgba(255, 255, 255, 0.8);
+
+    animation: sparkleDance 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.welcome h1 {
+    position: relative;
+    z-index: 1;
+
+    color: var(--cartoon-coral);
+    text-shadow:
+        2px 3px 0 rgba(255, 255, 255, 0.9),
+        0 5px 12px rgba(255, 85, 91, 0.13);
+
+    animation: titleBounce 3.5s ease-in-out infinite;
+    transform-origin: center;
+}
+
+.welcome p {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes bannerEnter {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes cloudDrift {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate(-10px, 8px) rotate(5deg);
+    }
+}
+
+@keyframes sparkleDance {
+    0%, 100% {
+        opacity: 0.6;
+        transform: rotate(0deg) scale(0.85);
+    }
+    50% {
+        opacity: 1;
+        transform: rotate(18deg) scale(1.15);
+    }
+}
+
+@keyframes titleBounce {
+    0%, 85%, 100% {
+        transform: translateY(0) rotate(0);
+    }
+    90% {
+        transform: translateY(-3px) rotate(-1deg);
+    }
+    95% {
+        transform: translateY(0) rotate(1deg);
+    }
+}
+
+/* =========================================
+   DASHBOARD PILLS — BOUNCY CARTOON BUTTONS
+   ========================================= */
+
+.dash-pill {
+    position: relative;
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, 0.22);
+
+    box-shadow:
+        0 5px 0 #1e6266,
+        0 8px 14px rgba(22, 58, 61, 0.12);
+
+    transition:
+        transform 0.25s cubic-bezier(.2, .8, .2, 1),
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
+}
+
+/* Animated shine passing over buttons */
+.dash-pill::before {
+    content: "";
+    position: absolute;
+    top: -60%;
+    left: -80%;
+
+    width: 45%;
+    height: 220%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.35),
+        transparent
+    );
+
+    transform: rotate(22deg);
+    transition: left 0.55s ease;
+    pointer-events: none;
+}
+
+.dash-pill:hover::before {
+    left: 140%;
+}
+
+.dash-pill:hover {
+    transform: translateY(-4px) scale(1.025);
+    box-shadow:
+        0 8px 0 #1e6266,
+        0 14px 20px rgba(22, 58, 61, 0.18);
+
+    filter: saturate(1.12);
+}
+
+.dash-pill:active {
+    transform: translateY(3px) scale(0.98);
+    box-shadow: 0 2px 0 #1e6266;
+}
+
+.dash-pill svg {
+    transition: transform 0.3s ease;
+}
+
+.dash-pill:hover svg {
+    transform: rotate(-8deg) scale(1.15);
+}
+
+.dash-pill.dark {
+    box-shadow:
+        0 5px 0 #0b2224,
+        0 8px 14px rgba(22, 58, 61, 0.12);
+}
+
+/* =========================================
+   SEARCH BAR — FRIENDLY FOCUS
+   ========================================= */
+
+.search-bar {
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.search-bar:focus-within {
+    border-color: var(--cartoon-cyan);
+    box-shadow:
+        0 0 0 4px rgba(80, 204, 223, 0.17),
+        0 4px 14px rgba(46, 141, 145, 0.1);
+
+    transform: translateY(-1px);
+}
+
+/* =========================================
+   DASHBOARD HEADINGS
+   ========================================= */
+
+.dashboard-row h2 {
+    text-decoration-color: var(--cartoon-pink);
+    text-decoration-thickness: 3px;
+    animation: headingAppear 0.7s ease both;
+}
+
+@keyframes headingAppear {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* =========================================
+   LEARNER PILL / SECTION ENTRANCE
+   ========================================= */
+
+.learners-pill {
+    animation: sectionFloatIn 0.7s 0.1s ease both;
+}
+
+.dashboard-grid .dash-pill:nth-child(1) {
+    animation: sectionFloatIn 0.55s 0.1s ease both;
+}
+
+.dashboard-grid .dash-pill:nth-child(2) {
+    animation: sectionFloatIn 0.55s 0.2s ease both;
+}
+
+.dashboard-grid .dash-pill:nth-child(3) {
+    animation: sectionFloatIn 0.55s 0.3s ease both;
+}
+
+.dashboard-grid .dash-pill:nth-child(4) {
+    animation: sectionFloatIn 0.55s 0.4s ease both;
+}
+
+@keyframes sectionFloatIn {
+    from {
+        opacity: 0;
+        transform: translateY(14px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* =========================================
+   GAME RESULTS — PLAYFUL EMPHASIS
+   ========================================= */
+
+.open-pill {
+    background: linear-gradient(
+        135deg,
+        var(--cartoon-cyan),
+        var(--cartoon-teal)
+    );
+
+    animation: gameButtonFloat 3s ease-in-out infinite;
+}
+
+@keyframes gameButtonFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
+}
+
+/* =========================================
+   CODE MARK / DECORATIVE LOGO IMAGE
+   ========================================= */
+
+.code-mark {
+    transition:
+        transform 0.4s ease,
+        filter 0.4s ease;
+}
+
+.code-mark:hover {
+    transform: scale(1.04) rotate(-1deg);
+    filter: drop-shadow(0 6px 8px rgba(80, 204, 223, 0.25));
+}
+
+/* =========================================
+   FOOTER — SOFT CARTOON FINISH
+   ========================================= */
+
+.footer {
+    background: linear-gradient(
+        120deg,
+        #c3dfe7,
+        #d9edf2,
+        #c3dfe7
+    );
+
+    background-size: 200% 200%;
+    animation: footerGlow 9s ease-in-out infinite;
+
+    box-shadow: 0 4px 12px rgba(45, 111, 131, 0.06);
+}
+
+@keyframes footerGlow {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* =========================================
+   ACCESSIBILITY — RESPECT REDUCED MOTION
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* =========================================
+   MOBILE ADJUSTMENTS
+   ========================================= */
+
+@media (max-width: 640px) {
+    .welcome::before {
+        width: 105px;
+        height: 85px;
+        right: -25px;
+        top: -20px;
+    }
+
+    .welcome::after {
+        top: 8px;
+        left: 10px;
+        font-size: 19px;
+    }
+
+    .welcome h1 {
+        line-height: 1.05;
+    }
+
+    .dash-pill:hover {
+        transform: translateY(-2px);
+    }
+}
+
+/* ==========================================
+   SKILLSTRACKAPP — ANIMATED LOGO BACKGROUND
+   Aqua • Cyan • Coral • Pink
+   ========================================== */
+
+:root {
+    --logo-aqua: #8DE0ED;
+    --logo-cyan: #50CCDF;
+    --logo-coral: #FF555B;
+    --logo-pink: #FF5EAE;
+    --logo-teal: #2E8D91;
+    --page-white: #FAFDFF;
+}
+
+/* Main animated background */
+body {
+    position: relative;
+    min-height: 100vh;
+    isolation: isolate;
+    background: linear-gradient(
+        -45deg,
+        #fafdff,
+        #dcf7fb,
+        #fce5f0,
+        #ffe8e6,
+        #dff8fc,
+        #f4e8ff
+    );
+    background-size: 400% 400%;
+    animation: logoColourFlow 22s ease-in-out infinite;
+}
+
+/* Large, soft cartoon-coloured background shapes */
+body::before {
+    content: "";
+    position: fixed;
+    inset: -15%;
+    z-index: -1;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            ellipse at 12% 18%,
+            rgba(80, 204, 223, 0.25) 0%,
+            transparent 34%
+        ),
+        radial-gradient(
+            ellipse at 85% 18%,
+            rgba(255, 94, 174, 0.19) 0%,
+            transparent 32%
+        ),
+        radial-gradient(
+            ellipse at 75% 82%,
+            rgba(255, 85, 91, 0.15) 0%,
+            transparent 34%
+        ),
+        radial-gradient(
+            ellipse at 18% 85%,
+            rgba(141, 224, 237, 0.32) 0%,
+            transparent 35%
+        );
+
+    background-size: 150% 150%;
+    animation: logoCloudMovement 18s ease-in-out infinite alternate;
+}
+
+/* Floating cartoon bubbles */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(80, 204, 223, 0.25) 0 5px,
+            transparent 6px
+        ),
+        radial-gradient(
+            circle,
+            rgba(255, 94, 174, 0.20) 0 7px,
+            transparent 8px
+        ),
+        radial-gradient(
+            circle,
+            rgba(255, 85, 91, 0.16) 0 4px,
+            transparent 5px
+        ),
+        radial-gradient(
+            circle,
+            rgba(141, 224, 237, 0.28) 0 9px,
+            transparent 10px
+        );
+
+    background-size:
+        180px 200px,
+        260px 270px,
+        220px 240px,
+        310px 300px;
+
+    background-position:
+        20px 30px,
+        110px 120px,
+        50px 180px,
+        200px 60px;
+
+    animation: cartoonBubbles 24s linear infinite;
+}
+
+/* Slowly transition through the logo palette */
+@keyframes logoColourFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    25% {
+        background-position: 50% 100%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    75% {
+        background-position: 50% 0%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Soft cloud-like colour movement */
+@keyframes logoCloudMovement {
+    0% {
+        transform: translate(-2%, -1%) scale(1);
+        opacity: 0.75;
+    }
+    50% {
+        transform: translate(2%, 1%) scale(1.04);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-1%, 2%) scale(1.02);
+        opacity: 0.8;
+    }
+}
+
+/* Slowly drifting bubbles */
+@keyframes cartoonBubbles {
+    from {
+        background-position:
+            20px 30px,
+            110px 120px,
+            50px 180px,
+            200px 60px;
+    }
+    to {
+        background-position:
+            200px -170px,
+            -100px -150px,
+            250px -60px,
+            -100px -240px;
+    }
+}
+
+/* Keep cards readable against the animated background */
+.welcome,
+.learners-panel,
+.footer {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* White, translucent surfaces */
+.welcome {
+    background-color: rgba(77, 187, 214, 0.92);
+}
+
+.footer {
+    background-color: rgba(195, 223, 231, 0.94);
+}
+
+/* Gentle logo-coloured border glow on hover */
+.dash-pill {
+    transition:
+        transform 1.25s ease,
+        box-shadow 1.25s ease,
+        border-color 1.25s ease;
+}
+
+.dash-pill:hover {
+    border-color: var(--logo-cyan);
+    box-shadow:
+        0 7px 0 #246d70,
+        0 0 20px rgba(80, 204, 223, 0.22);
+}
+
+/* Accessibility: stop background movement when requested */
+@media (prefers-reduced-motion: reduce) {
+    body,
+    body::before,
+    body::after {
+        animation: none !important;
+    }
+
+    body {
+        background: linear-gradient(
+            135deg,
+            #e5faff,
+            #fff0f6,
+            #fff0ed,
+            #f0fcff
+        );
+        background-size: auto;
+    }
+}
