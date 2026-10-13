@@ -172,8 +172,8 @@
 
       <h2 class="task-page-title">Learner Progress</h2>
 
-      <div class="task-breadcrumb-row task-breadcrumb-row-center" style="justify-content:space-between; gap:16px; margin: 20px 0;">
-        <div class="task-search" style="max-width:280px;">
+      <div class="task-breadcrumb-row task-breadcrumb-row-center">
+        <div class="task-search">
           <input type="search" id="learnerProgressSearch" placeholder="Search learner work" aria-label="Search learner progress">
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="11" cy="11" r="7"/>
@@ -181,9 +181,9 @@
           </svg>
         </div>
 
-        <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
-          <label for="learnerProgressSelect" style="font-weight:700;">Learner:</label>
-          <select id="learnerProgressSelect" style="min-width:200px; padding:10px 12px; border-radius:8px; border:1px solid #d9dee8; background:#fff;">
+        <div align-items:center; gap:12px; flex-wrap:wrap;>
+          <label for="learnerProgressSelect" >Learner:</label>
+          <select id="learnerProgressSelect">
             <option value="all">All learners</option>
           </select>
           <button type="button" class="task-refresh-btn" id="refreshProgressBtn">
@@ -251,3 +251,6 @@
 <script type="module" src="assessor-learner-progress.js"></script>
 </body>
 </html>
+
+         
+       
