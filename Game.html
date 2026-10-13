@@ -52,15 +52,17 @@
         <a class="link-terms" href="terms.html">Terms &amp; Conditions</a>
       </div>
 
-      <svg class="icon-user" xmlns="http://www.w3.org/2000/svg" width="24" height="23"
-           viewBox="0 0 24 24" fill="none" stroke="#1e1e1e" stroke-width="2"
-           stroke-linecap="round" stroke-linejoin="round">
-        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-        <circle cx="12" cy="7" r="4"/>
-      </svg>
+      <div class="user-panel">
+        <svg class="icon-user" xmlns="http://www.w3.org/2000/svg" width="24" height="23"
+             viewBox="0 0 24 24" fill="none" stroke="#1e1e1e" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
 
-      <div class="learner-badge">
-        <span class="learner-text">LEARNER</span>
+        <div class="learner-badge">
+          <span class="learner-text" id="learner-text">Guest</span>
+        </div>
       </div>
 
     </div>
@@ -300,6 +302,7 @@
   </div>
 </div>
 
+<script type="module" src="src/navbar-user.js"></script>
 <script type="module" src="script.js"></script>
 </body>
 </html>
