@@ -57,6 +57,66 @@
       text-decoration: none;
     }
 
+    .header-user-area {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-top: 12px;
+      margin-left: auto;
+    }
+
+    .user-panel {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
+      padding: 8px 12px;
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid #8bb8c4;
+      border-radius: 999px;
+      max-width: fit-content;
+    }
+
+    .learner-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3px 10px;
+      border-radius: 6px;
+      border: 1px solid #c7d6ef;
+      background: #e8f0ff;
+      width: fit-content;
+    }
+
+    .learner-text {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: #1d4ed8;
+    }
+
+    .logout-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      width: 170px;
+      height: 38px;
+      border: none;
+      border-radius: 999px;
+      background: #2e8d91;
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .logout-pill svg {
+      flex: 0 0 auto;
+      stroke: #ffffff;
+    }
+
     .welcome {
       margin-top: 14px;
       border-radius: 16px;
@@ -271,6 +331,29 @@
       </nav>
     </header>
 
+    <div class="header-user-area">
+      <div class="user-panel" aria-live="polite">
+        <svg class="icon-user" xmlns="http://www.w3.org/2000/svg" width="24" height="23"
+             viewBox="0 0 24 24" fill="none" stroke="#1e1e1e" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+
+        <div class="learner-badge">
+          <span class="learner-text" id="learner-text">Guest</span>
+        </div>
+      </div>
+
+      <button type="button" class="logout-pill" data-logout-button="true" aria-label="Logout" onclick="logoutUser()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 9.9-1"></path>
+        </svg>
+        Logout
+      </button>
+    </div>
+
     <section class="welcome" aria-label="Welcome message">
       <h1>Welcome<br>SkillsTrackApp Learner Support Portal</h1>
       <p>SkillsTrack Training Centre supports learners who attend short occupational programmes.</p>
@@ -341,7 +424,7 @@
 
     <section class="game-results" aria-label="Game results">
       <p>View Game Results From Learners</p>
-      <a class="dash-pill open-pill" href="game-results.html" data-label="Open">Open</a>
+      <a class="dash-pill open-pill" href="assessor-game-results.html" data-label="Open">Open</a>
     </section>
 
     <section class="features" aria-label="Feature summary">
@@ -358,6 +441,7 @@
     </footer>
   </main>
 
+  <script type="module" src="navbar-user.js"></script>
   <script type="module" src="AssessorDashboard.js"></script>
 </body>
 </html>
