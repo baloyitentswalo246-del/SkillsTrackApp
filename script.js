@@ -146,9 +146,9 @@ const obj = { ...defaults, ...___ };`,
     console.error("Failed to seed questions:", error);
   }
 }
-// ============================================
+
 // FIRESTORE
-// ============================================
+
 
 async function loadQuestionsFromFirestore() {
   try {
@@ -176,9 +176,9 @@ async function loadQuestionsFromFirestore() {
     alert("Failed to load questions.");
   }
 }
-// ============================================
+
 // GAME STATE
-// ============================================
+
 let state = {
   currentQuestion: 0,
   level: 1,
@@ -193,9 +193,8 @@ let state = {
   totalAttempts: 0,
 };
 
-// ============================================
 // INIT
-// ============================================
+
 window.addEventListener("DOMContentLoaded", async () => {
 
   if (!document.querySelector(".bottom-panel-rect")) {
@@ -241,9 +240,8 @@ function updateStats() {
   document.getElementById('hints').textContent = state.hints;
 }
 
-// ============================================
 // TIMER
-// ============================================
+
 function startTimer() {
   clearInterval(state.timerInterval);
   state.timer = 60;
@@ -274,9 +272,9 @@ function handleTimeout() {
   }
 }
 
-// ============================================
+
 // LOAD QUESTION
-// ============================================
+
 function loadQuestion() {
   hideAllFeedback();
 
@@ -332,10 +330,9 @@ function loadQuestion() {
 function escapeHtml(text) {
   return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
-
-// ============================================
+ 
 // INTERACTION
-// ============================================
+ 
 function selectBlank(index) {
   state.activeBlank = index;
   document.querySelectorAll('.blank').forEach((el, i) => {
@@ -380,9 +377,8 @@ function pickOption(value, btnEl) {
   }
 }
 
-// ============================================
 // SUBMIT
-// ============================================
+
 async function submitAnswer() {
   const q = questions[state.currentQuestion];
   state.totalAttempts++;
@@ -460,9 +456,8 @@ async function submitAnswer() {
   }
 }
 
-// ============================================
 // HINTS
-// ============================================
+
 function useHint() {
   if (state.hints <= 0) {
     alert('No hints remaining!');
@@ -479,9 +474,9 @@ function closeHint() {
   hideAllFeedback();
 }
 
-// ============================================
+
 // NAVIGATION
-// ============================================
+
 function nextQuestion() {
   state.currentQuestion++;
   loadQuestion();
@@ -549,9 +544,9 @@ function playAgain() {
   loadQuestion();
 }
 
-// ============================================
+
 // FEEDBACK HELPERS
-// ============================================
+
 function hideAllFeedback() {
   document.querySelectorAll('.feedback-modal').forEach((el) => el.classList.add('hidden'));
   document.getElementById('game-area').classList.remove('hidden');
