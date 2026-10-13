@@ -12,7 +12,6 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 
 import { auth, db } from "../firebase.config.js";
-
 let questions = [];
 
 async function seedQuestionsIfEmpty() {
@@ -589,6 +588,8 @@ async function showGameOver() {
   document.getElementById('game-over').classList.remove('hidden');
   setBottomPanelResultMode(true);
 }
+
+
 
 window.toggleSidebar = toggleSidebar;
 window.useHint = useHint;
