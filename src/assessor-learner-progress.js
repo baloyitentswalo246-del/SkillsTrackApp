@@ -7,8 +7,11 @@ import {
 
 import {
   collection,
+  doc,
   getDocs,
   query,
+  serverTimestamp,
+  updateDoc,
   where
 } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 
@@ -80,7 +83,64 @@ function isInProgressStatus(status) {
     "started"
   ].includes(normalized);
 }
+
+function getTaskPercentage(task) {
+  const rawValue = Number(task?.markPercentage ?? task?.percentage ?? task?.grade ?? task?.score ?? 0);
+
+  if (!Number.isFinite(rawValue)) {
+    return 0;
+  }
+
+  return Math.min(100, Math.max(0, Math.round(rawValue)));
+}
+
+function getStatusFromPercentage(value) {
+  const percentage = Math.min(100, Math.max(0, Number(value) || 0));
+
+  if (percentage >= 100) return "Completed";
+  if (percentage > 0) return "Submitted";
+  return "Pending";
+}
 // reader for progress cards
+function saveTaskMark(taskId, percentageValue) {
+  const taskIndex = progressTasks.findIndex((task) => task.id === taskId);
+
+  if (taskIndex === -1) return;
+
+  const selectedTask = progressTasks[taskIndex];
+  const percentage = Math.min(100, Math.max(0, Number(percentageValue) || 0));
+  const normalizedStatus = getStatusFromPercentage(percentage);
+
+  updateDoc(doc(db, "LearnerTasks", taskId), {
+    status: normalizedStatus,
+    markPercentage: percentage,
+    percentage,
+    updatedAt: serverTimestamp()
+  })
+    .then(() => {
+      progressTasks[taskIndex] = {
+        ...selectedTask,
+        status: normalizedStatus,
+        markPercentage: percentage,
+        percentage,
+        updatedAt: serverTimestamp()
+      };
+
+      const learnerId = selectedTask.learnerUid || selectedTask.learnerId || "";
+      renderProgressCards();
+
+      setTimeout(() => {
+        window.location.href = learnerId
+          ? `assessor-reports.html?learnerId=${encodeURIComponent(learnerId)}`
+          : "assessor-reports.html";
+      }, 200);
+    })
+    .catch((error) => {
+      console.error("Error updating task status:", error);
+      alert("Unable to mark this task right now. Please try again.");
+    });
+}
+
 function renderProgressCards() {
   if (!learnerProgressContainer) return;
 
@@ -136,12 +196,16 @@ function renderProgressCards() {
       const totalTasks = tasks.length;
       const inProgressTasks = tasks.filter((task) => isInProgressStatus(task.status)).length;
       const completedTasks = tasks.filter((task) => isCompletedStatus(task.status)).length;
-      const overallPercentage = totalTasks ? Math.round((completedTasks / totalTasks) * 100) : 0;
+      const learnerAverage = totalTasks
+        ? Math.round(tasks.reduce((sum, task) => sum + getTaskPercentage(task), 0) / totalTasks)
+        : 0;
+      const overallPercentage = learnerAverage;
 
       const taskCards = tasks
         .map((task) => {
           const taskTitle = task.taskTitle || "Untitled task";
           const status = String(task.status || "Pending");
+          const taskPercentage = getTaskPercentage(task);
           const submissionText = task.submissionText || "No learner submission yet.";
 
           return `
@@ -179,11 +243,29 @@ function renderProgressCards() {
                 </span>
                 <span class="tag-pill ${status.toLowerCase() === "completed" || status.toLowerCase() === "submitted" ? "total" : ""}">${status}</span>
               </div>
+              <div class="subject-row">
+                <span class="subject-row-label">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="9"/>
+                    <path d="M12 7v5l3 3"/>
+                  </svg>
+                  Grade
+                </span>
+                <span class="tag-pill total">${taskPercentage}%</span>
+              </div>
               <div class="subject-row" style="display:block;">
                 <span class="subject-row-label" style="display:block; margin-bottom:8px;">
                   Submitted work
                 </span>
                 <span>${escapeHtml(submissionText)}</span>
+              </div>
+              <div class="subject-row" style="display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between;">
+                <label for="mark-${task.id}" style="font-weight:700; margin:0;">Mark task</label>
+                <div style="display:flex; align-items:center; gap:8px;">
+                  <input id="mark-${task.id}" data-percent-select="${task.id}" type="number" min="0" max="100" step="5" value="${taskPercentage}" style="width:90px; padding:8px 10px; border-radius:8px; border:1px solid #c8d1e1; background:#fff;" />
+                  <span>%</span>
+                </div>
+                <button type="button" class="task-refresh-btn" data-mark-task="${task.id}" style="padding:9px 14px;">Save Mark</button>
               </div>
             </div>
           `;
@@ -237,6 +319,17 @@ function renderProgressCards() {
       `;
     })
     .join("");
+
+  const markButtons = learnerProgressContainer.querySelectorAll("[data-mark-task]");
+
+  markButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const taskId = button.dataset.markTask;
+      const input = learnerProgressContainer.querySelector(`[data-percent-select="${taskId}"]`);
+      const nextPercentage = input ? Number(input.value) : 0;
+      saveTaskMark(taskId, nextPercentage);
+    });
+  });
 }
 // loading learners from Firestore
 async function loadLearners() {
